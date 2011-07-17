@@ -98,9 +98,9 @@ h4 {
 	background-image:     -ms-linear-gradient(top, #00ef0c, #069621); 
 	background-image:      -o-linear-gradient(top, #00ef0c, #069621); 
 	padding: 8px 16px;
-	-webkit-border-radius: 15px;
-	-moz-border-radius:    15px;
-	border-radius:         15px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius:    10px;
+	border-radius:         10px;
 	-webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,0.75);
 	-moz-box-shadow:    inset 0 1px 1px rgba(255,255,255,0.75);
 	box-shadow:         inset 0 1px 1px rgba(255,255,255,0.75);
@@ -112,11 +112,11 @@ h4 {
 	vertical-align: middle;
 }
 .button:hover {
-   background: #007b17;
+	background: #069621;
 	box-shadow: none;
 }
 .button:active {
-   background: #00500f;
+   background: #007b17;
 }
 .button img {
 	top: 2px;
