@@ -31,7 +31,12 @@ $(document).delegate(".person", "hover", function() {
 	
 });
 
+$("#wufoo, #about-text").hide();
 
 $("#contact a").click(function() {
-	$(this).find("div").slideUp();	
+	$("#wufoo").slideToggle();	
+});
+
+$("#about-us a").click(function() {
+	$("#about-text").slideToggle();	
 });

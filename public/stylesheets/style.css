@@ -24,6 +24,10 @@ body {
 a {
 	text-decoration: none;
 }
+p {
+	margin: 0 0 10px 0;
+}
+
 input[type=search] {
 	font-size: 18px;
 }
@@ -41,8 +45,7 @@ h1 span {
 h2 {
 	font-weight: 300;
 	font-size: 30px;
-	padding-top: 10px;
-	margin: 0 0 12px 0;
+	margin: 0 0 15px 0;
 }
 h3 {
 	background: rgba(255, 0, 0, 0.8);
@@ -98,11 +101,13 @@ h4 {
 	-webkit-border-radius: 15px;
 	-moz-border-radius:    15px;
 	border-radius:         15px;
-	box-shadow: inset 0 1px 0 white;
+	-webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,0.75);
+	-moz-box-shadow:    inset 0 1px 1px rgba(255,255,255,0.75);
+	box-shadow:         inset 0 1px 1px rgba(255,255,255,0.75);
 	text-shadow: rgba(0,0,0,.4) 0 1px 0;
 	color: white;
 	font-size: 14px;
-	font-family: Georgia, serif;
+	font-weight: 600;
 	text-decoration: none;
 	vertical-align: middle;
 }
@@ -199,23 +204,18 @@ h4 {
 }
 
 #filter {
-	background-color: #6400c1;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#6400c1), to(#3e0077)); 
-	background-image: -webkit-linear-gradient(top, #6400c1, #3e0077); 
-	background-image:    -moz-linear-gradient(top, #6400c1, #3e0077); 
-	background-image:     -ms-linear-gradient(top, #6400c1, #3e0077); 
-	background-image:      -o-linear-gradient(top, #6400c1, #3e0077); 
+	background-color: #333;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	padding: 10px;
+	padding: 10px 20px;
 	color: white;
 	font-size: 18px;
 }
 #filter input[type=search] {
 	position: absolute;
-	right: 35px;
+	right: 55px;
 	top: 10px;
 }
 #tagline {
@@ -238,10 +238,11 @@ footer {
 	background: #666;
 	padding: 10px;
 }
-footer #contact div {
+
+#wufoo {
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 35px;
 }
 footer a {
 	color: white;
@@ -251,4 +252,24 @@ footer a {
 	position: absolute;
 	right: 10px;
 	top: 10px;
+}
+#about-text {
+	position: absolute;
+	bottom: 35px;
+	right: 10px;
+	background: white;
+	width: 400px;
+	padding: 20px;
+	color: black;
+}
+#about-text ul {
+	margin: 0 0 15px 25px;
+}
+
+#about-text a {
+	color: #247eca;
+	border-bottom: 1px dotted #247eca;
+}
+#about-text a:hover {
+	border-bottom-style: solid;
 }
