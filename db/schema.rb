@@ -10,7 +10,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20110717211400) do
 
   create_table "categories", :force => true do |t|
@@ -39,8 +38,6 @@ ActiveRecord::Schema.define(:version => 20110717211400) do
     t.datetime "updated_at"
   end
 
-ActiveRecord::Schema.define(:version => 20110717205012) do
-
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -51,12 +48,11 @@ ActiveRecord::Schema.define(:version => 20110717205012) do
     t.string   "url1"
     t.string   "url2"
     t.string   "url3"
+    t.string   "openid_url"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "openid_url"
-
   end
 
 end
