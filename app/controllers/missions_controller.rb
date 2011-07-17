@@ -1,0 +1,2 @@
+class MissionsController < ApplicationController
+end

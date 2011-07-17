@@ -1,4 +1,12 @@
 Noladex::Application.routes.draw do
+  resources :missions
+
+  resources :neighborhoods
+
+  resources :tags
+
+  resources :categories
+
   resources :users
 
   # The priority is based upon order of creation:
