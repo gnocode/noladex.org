@@ -8,6 +8,7 @@ Noladex::Application.routes.draw do
   resources :categories
 
   resources :users
+  resource :session
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
