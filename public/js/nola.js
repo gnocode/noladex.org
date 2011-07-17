@@ -30,3 +30,8 @@ $(document).delegate(".person", "hover", function() {
 	$("#tagline").val($(this).find(".tag").text());
 	
 });
+
+
+$("#contact a").click(function() {
+	$(this).find("div").slideUp();	
+});

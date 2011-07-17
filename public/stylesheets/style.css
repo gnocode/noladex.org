@@ -239,7 +239,9 @@ footer {
 	padding: 10px;
 }
 footer #contact div {
-	display: none;
+	position: absolute;
+	left: 0;
+	bottom: 0;
 }
 footer a {
 	color: white;
