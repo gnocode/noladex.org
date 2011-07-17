@@ -273,3 +273,62 @@ footer a {
 #about-text a:hover {
 	border-bottom-style: solid;
 }
+
+@media (max-width:600px) {
+
+	h3, #about-us, #logo, #search-and-add, #filter, #filter input[type="search"], #contact, #about-us, #about-text {
+		position: static;
+		display: block;
+	}
+	
+	#search-and-add {
+		padding: 5px 0 20px; 
+	}
+	
+	#logo {
+		margin: 20px auto;
+	}
+	
+	#about {
+		height: auto;
+		padding: 0;
+		text-align: center;
+		padding: 10px 0 0 0;
+	}
+	
+	#search {
+		margin: 10px auto;
+		width: 80%;
+	}
+	
+	#filter {
+		text-align: center;
+		padding: 10px 0;
+	}
+	
+	#contact {
+		margin: 0 0 20px 0;
+	}
+	
+	#about-text {
+		width: 100%;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	
+	#wufoo {
+		position: relative;
+		bottom: auto;
+	}
+	
+	footer, #about {
+		position: relative;
+	}
+	footer > div > a {
+		display: block;
+		margin: 0 0 10px 0;
+	}
+	
+	
+}
