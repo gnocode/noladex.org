@@ -22,12 +22,7 @@
 		
 		<div id="filter">
 			These are people who:
-			<select>
-				<option>Create</option>
-				<option>Build</option>
-				<option>Fix</option>
-				<option>Dance</option>
-			</select>
+			<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name")) %>
 			
 			<input type="search" name="search" id="search" results="5">
 			
