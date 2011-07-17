@@ -71,8 +71,8 @@ h4 {
 }
 
 #people {
-  padding-top: 130px;
- text-align: center;
+	padding-top: 130px;
+	text-align: center;
 	line-height: 0.7
 }
 
@@ -81,7 +81,7 @@ h4 {
   top: 0;
   left: 0;
   right: 0;
-  height: 90px;
+  height: 88px;
   background: white;
   padding: 20px;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.9);
@@ -172,9 +172,25 @@ h4 {
 	display: inline-block;
 	width: 16px;
 	height: 16px;
-	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius:    8px;
+	border-radius:         8px;
 	text-indent: -9999px;
 	background: white;
+}
+.icons a:hover {
+	-webkit-box-shadow: 0 0 10px white;
+	-moz-box-shadow:    0 0 10px white;
+	box-shadow:         0 0 10px white;
+}
+.icons .twitter {
+	background: url(../images/twitter_icon.png);
+}
+.icons .link {
+	background: url(../images/link_icon.png);
+}
+.icons .email {
+	background: url(../images/email_icon.png);
 }
 
 #search-and-add {
@@ -184,19 +200,12 @@ h4 {
 }
 
 #filter {
-	
-
-
-  background-color: #6400c1;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#6400c1), to(#3e0077)); 
-  background-image: -webkit-linear-gradient(top, #6400c1, #3e0077); 
-  background-image:    -moz-linear-gradient(top, #6400c1, #3e0077); 
-  background-image:     -ms-linear-gradient(top, #6400c1, #3e0077); 
-  background-image:      -o-linear-gradient(top, #6400c1, #3e0077); 
-  background-image:         linear-gradient(top, #6400c1, #3e0077);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#6400c1', EndColorStr='#3e0077'); 
-
-
+	 background-color: #6400c1;
+	 background-image: -webkit-gradient(linear, left top, left bottom, from(#6400c1), to(#3e0077)); 
+	 background-image: -webkit-linear-gradient(top, #6400c1, #3e0077); 
+	 background-image:    -moz-linear-gradient(top, #6400c1, #3e0077); 
+	 background-image:     -ms-linear-gradient(top, #6400c1, #3e0077); 
+	 background-image:      -o-linear-gradient(top, #6400c1, #3e0077); 
 	position: absolute;
 	bottom: 0;
 	left: 0;
