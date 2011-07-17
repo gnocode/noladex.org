@@ -12,12 +12,14 @@ for (i=0; i<10; i++) {
   $("#person-" + i).load("parts/person.html", function() {
   
     $(this).find("img").load(function() {
-    
-      $(this).parent().fadeIn();
 
-		if (i == 10) {
-			allPeople = $(".person");
-		}
+      $(this).parent().fadeIn(400, function(){
+      		$(this).css('display', 'inline-block');
+      	});
+
+	//	if (i == 10) {
+	//		allPeople = $(".person");
+	//	}
     
     });
   
