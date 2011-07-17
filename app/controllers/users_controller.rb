@@ -26,6 +26,11 @@ class UsersController < ApplicationController
   def new
     @user = User.new
 
+    3.times do
+      mission = @user.missions.build
+    end
+
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user }
@@ -41,7 +46,8 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
+    @user.missions.build :category => Category.all.sample, :statement => 'to be awesome'
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
