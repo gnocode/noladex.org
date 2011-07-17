@@ -1,28 +1,41 @@
 <h1>Listing users</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Url photo</th>
-    <th>Admin</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<section id="people">
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= user.email %></td>
-    <td><%= user.url_photo %></td>
-    <td><%= user.admin %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+	<% @users.each do |user| %>
+
+	 <div id="person-<% user.id %>" class="person">
+		
+		<img style="display: inline-block" src="<%= user.url_photo %>" />
+	
+			<div class="overlay">
+
+				<h2><%= user.name %></h2>
+
+				<p class="tag">Pet my little furry head.</p>
+
+				<div class='icons'>
+					<a href="#" class="twitter">Twitter</a>
+					<a href="#" class="email"><%= user.email %></a>
+					<a href="#" class="link">URL</a>
+				</div>
+
+				<div class="tags">
+					<a href="#">Drupal</a>
+					<a href="#">Banjos</a>
+					<a href="#">Sandwhiches</a>
+				</div>
+
+			</div>
+		<!--
+			    <td><%= link_to 'Show', user %></td>
+			    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+			    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+			-->
+		</div>
+	<% end %>
+
+</section>
 
 <br />
 

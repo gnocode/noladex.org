@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
 
+gem "ruby-openid"
+gem "rack-openid"
+
 gem 'rails', '3.0.6'
 
 # Bundle edge Rails instead:
