@@ -25,47 +25,8 @@ for (i=0; i<10; i++) {
 
 };
 
-// function resetAll() {
-// 	
-// 	
-// 
-//   allPeople.css({
-//   
-//     "position": "relative",
-//     "top"     : "auto",
-//     "left"    : "auto",
-//     "z-index" : 0,
-//     "width"   : 200,
-//     "height"  : 200,
-//     "padding-left": 0
-//   
-//   }).find(".overlay").addClass("dim");
-// 
-// };
-// 
-// 
-// $(document).delegate(".person", "click", function() {
-// 
-//   resetAll();
-// 
-//   var el = $(this);
-// 
-//   var pos = el.position();
-//   
-//   el.addClass("hideOverlay").css({
-//   
-//     "position": "fixed",
-//     "top"     : pos.top,
-//     "left"    : pos.left,
-//     "z-index" : 3,
-//     
-//   
-//   }).animate({
-//   
-//     "width"   : 261,
-//     "height"  : 200,
-//     "padding-left" : 220
-//   
-//   });
-// 
-// });
+$(".contact a").click(function() {
+
+	$(".contact div").slideToggle();
+	
+});
