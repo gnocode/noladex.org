@@ -1,6 +1,6 @@
 var i, e, allPeople;
     
-for (i=0; i<10; i++) {
+for (i=0; i<0; i++) {
 
   $("<div />", {
   
