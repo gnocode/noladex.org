@@ -25,8 +25,13 @@ for (i=0; i<10; i++) {
 
 };
 
-$(".contact a").click(function() {
-
-	$(".contact div").slideToggle();
+$(document).delegate(".person", "hover", function() {
 	
+	$("#tagline").val($(this).find(".tag").text());
+	
+});
+
+
+$("#contact a").click(function() {
+	$(this).find("div").slideUp();	
 });
