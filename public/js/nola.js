@@ -27,8 +27,6 @@ for (i=0; i<10; i++) {
 
 $(document).delegate(".person", "hover", function() {
 	
-		console.log($(this).find(".tag").text());
-
 	$("#tagline").val($(this).find(".tag").text());
 	
 });
