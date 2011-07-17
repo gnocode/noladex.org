@@ -1,14 +1,11 @@
 <html>
   <head>
-    <title>On Stage - Launch your campaigns in style!</title>
+    <title>Noladex</title>
     <link rel="stylesheet" href="/style.css" type="text/css" media="screen" charset="utf-8">
   </head>
   <body>
     <% if session?%>
       <a id="logout" href="/logout">Logout</a>
-      <% if checkOrganizerFromView(session['user_id']) %>
-        <a id="dashboard" href="/dashboard">Dashboard</a>
-      <% end %>
     <% end %>
     <% if flash[:notice]%>
       <div class="flash notice">

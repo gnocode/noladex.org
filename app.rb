@@ -80,6 +80,14 @@ class Category
   property :created_at, DateTime
 end
 
+class Neighborhood
+  include DataMapper::Resource
+  belongs_to :user, :required => true
+  property :id, Serial
+  property :name, String
+  property :created_at, DateTime
+end
+
 class Url
   include DataMapper::Resource
   belongs_to :user, :required => true
@@ -156,11 +164,11 @@ end
 #####################################################
 # ROUTES
 
-# /
+# /users/new
 # {{{
-get '/?' do
-  session!
-  redirect '/dashboard'
+get '/users/new/?' do
+  # session!
+  erubis :new
 end
 #}}}
 
