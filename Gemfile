@@ -1,0 +1,11 @@
+source 'http://rubygems.org'
+
+gem 'sinatra'
+gem 'datamapper', '1.1.0'
+gem 'gibbon'
+gem 'logger'
+gem 'erubis'
+gem 'sinatra-session'
+gem 'dm-postgres-adapter'
+gem 'rack-flash'
+gem 'pusher'
