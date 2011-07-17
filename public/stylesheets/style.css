@@ -119,10 +119,10 @@ h4 {
    background: #007b17;
 }
 .button img {
-	top: 2px;
 	position: relative;
-	margin-right: 2px;
+	top: 2px;
 }
+
 .person {
   width: 300px;
   height: 300px;
@@ -130,6 +130,7 @@ h4 {
   display: inline-block;
   overflow: hidden;
   background: white;
+  margin: 0 0 4px 0;
 }
 .person img {
   position: absolute;
