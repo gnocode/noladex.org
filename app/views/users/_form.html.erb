@@ -39,7 +39,7 @@
     <%= f.text_field :url3 %>
   </div>  
   <h3>Mission</h3>
-  I&nbsp;<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name")) %>&nbsp;<%=text_field_tag 'name' %>
+  I&nbsp;<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name")) %>&nbsp;<%=text_field_tag 'mission_statement' %>
     
   <div class="actions">
     <%= f.submit %>
