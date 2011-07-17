@@ -219,17 +219,26 @@ h4 {
 	right: 55px;
 	top: 10px;
 }
-#tagline {
-	font-size: 21px;
-	width: 50%;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight: 300;
-	font-size: 16px;
-	padding: 3px;
-}
 #filter * {
 	vertical-align: middle;
 }
+
+
+form {
+	text-align: left;
+	color: white;
+	padding: 8px 20px;
+}
+form input[type=text] {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	padding: 5px;
+}
+form .field {
+	margin: 0 0 15px 0;
+}
+
 
 footer {
 	position: fixed;
@@ -330,6 +339,5 @@ footer a {
 		display: block;
 		margin: 0 0 10px 0;
 	}
-	
 	
 }

@@ -26,8 +26,7 @@
 			Find people that: 
 			<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name")) %>
 			
-			<input type="search" name="search" id="search" results="5">
-			
+			<input type="search" name="search" id="search" results="5" placeholder="search...">			
 		</div>
 	</section>
 	
