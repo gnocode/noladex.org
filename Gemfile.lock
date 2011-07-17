@@ -30,6 +30,10 @@ GEM
     activesupport (3.0.6)
     archive-tar-minitar (0.5.2)
     arel (2.0.9)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     builder (2.1.2)
     cocaine (0.1.0)
     columnize (0.3.4)
@@ -89,12 +93,14 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.27)
+    xml-simple (1.1.0)
 
 PLATFORMS
   ruby
   x86-mingw32
 
 DEPENDENCIES
+  aws-s3
   paperclip
   rack-openid
   rails (= 3.0.6)
