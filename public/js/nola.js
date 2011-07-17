@@ -12,12 +12,14 @@ for (i=0; i<10; i++) {
   $("#person-" + i).load("parts/person.html", function() {
   
     $(this).find("img").load(function() {
-    
-      $(this).parent().fadeIn();
 
-		if (i == 10) {
-			allPeople = $(".person");
-		}
+      $(this).parent().fadeIn(400, function(){
+      		$(this).css('display', 'inline-block');
+      	});
+
+	//	if (i == 10) {
+	//		allPeople = $(".person");
+	//	}
     
     });
   
@@ -31,7 +33,12 @@ $(document).delegate(".person", "hover", function() {
 	
 });
 
+$("#wufoo, #about-text").hide();
 
 $("#contact a").click(function() {
-	$(this).find("div").slideUp();	
+	$("#wufoo").slideToggle();	
+});
+
+$("#about-us a").click(function() {
+	$("#about-text").slideToggle();	
 });
