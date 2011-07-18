@@ -285,6 +285,7 @@ footer {
 }
 footer a {
 	color: white;
+	cursor: pointer;
 }
 
 #about-us {
