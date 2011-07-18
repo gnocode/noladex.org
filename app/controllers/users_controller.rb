@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @users = Array.new
   
     if (!params[:category].blank?) then
-      @users2Check = User.all
+      @users2Check = User.all.shuffle
       @users2Check.each do |user|  
         user.missions.each do |mission|
           if (params[:category] == mission.category.id.to_s()) 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         end
       end  
     else
-      @users = User.all  
+      @users = User.all.shuffle  
     end    
     
 
