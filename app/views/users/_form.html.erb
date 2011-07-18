@@ -38,21 +38,17 @@
 	<%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
+  <!-- <div class="field">
+      <%= f.label :admin %>
+      <%= f.check_box :admin %>
+    </div> -->
   <div class="field">
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
-  </div>
-  <div class="field">
-    <%= f.label :url1 %>
-    <%= f.text_field :url1 %>
+    <%= f.label :Twitter %>
+    <%= f.text_field :url1, :placeholder => "@whatever" %>
   </div>  
   <div class="field">
-    <%= f.label :url2 %>
-    <%= f.text_field :url2 %>
-  </div>  
-  <div class="field">
-    <%= f.label :url3 %>
-    <%= f.text_field :url3 %>
+    <%= f.label :URL %>
+    <%= f.text_field :url3, :placeholder => "http://janedoe.com" %>
   </div>    
     
   <div class="actions">

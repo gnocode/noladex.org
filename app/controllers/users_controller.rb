@@ -42,7 +42,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     # hardcoded    
-    debugger
     @user.missions.build :category => Category.find(params[:categories]), :statement => params[:mission_statement]
     
     respond_to do |format|
