@@ -3,18 +3,18 @@
 
 	 <div id="person-<% user.id %>" class="person">
 		
-		<img style="display: inline-block" src="<%= user.url_photo %>" />
+		<img style="display: inline-block" src="<%= user.avatar.url %>" />
 	
 			<div class="overlay">
 
 				<h2><%= user.name %></h2>
 
-				<p class="tag">Pet my little furry head.</p>
+				<p class="tag">I <%=user.missions.first.category.name.downcase %>&nbsp;<%=user.missions.first.statement %> </p>
 
 				<div class='icons'>
-					<a href="#" class="twitter">Twitter</a>
-					<a href="#" class="email"><%= user.email %></a>
-					<a href="#" class="link">URL</a>
+					<a href="http://twitter.com/<%= user.url1 %>" class="twitter">Twitter</a>
+					<a href="<%= user.url2 %>" class="link">URL</a>
+					<a href="<%= user.url3 %>" class="link">URL</a>
 				</div>
 <!--
 				<div class="tags">
