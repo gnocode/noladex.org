@@ -311,6 +311,10 @@ footer a {
 		margin: 20px auto;
 	}
 	
+	#logo a {
+		margin: 0 auto;
+	}
+	
 	#about {
 		height: auto;
 		padding: 0;
