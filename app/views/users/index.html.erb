@@ -9,12 +9,27 @@
 
 				<h2><%= user.name %></h2>
 
-				<p class="tag">I <%=user.missions.first.category.name.downcase %>&nbsp;<%=user.missions.first.statement %> </p>
-
+				
+				<% if !user.missions[0].nil? then %>
+				  <p class="tag">I <%=user.missions[0].category.name.downcase %>&nbsp;<%=user.missions[0].statement %> </p>
+				<% end%>
+				<% if !user.missions[1].nil? then %>
+				  <p class="tag">I <%=user.missions[1].category.name.downcase %>&nbsp;<%=user.missions[1].statement %> </p>
+				<% end%>
+				<% if !user.missions[2].nil? then %>
+				  <p class="tag">I <%=user.missions[2].category.name.downcase %>&nbsp;<%=user.missions[2].statement %> </p>
+				<% end%>				
 				<div class='icons'>
-					<a href="http://twitter.com/<%= user.url1 %>" class="twitter">Twitter</a>
-					<a href="<%= user.url2 %>" class="link">URL</a>
-					<a href="<%= user.url3 %>" class="link">URL</a>
+				  <% if !user.url1.blank? %>
+				    <a href="http://twitter.com/<%= user.url1 %>" class="twitter" target="_blank">Twitter</a>
+				  <% end %>
+				  <% if !user.url2.blank? %>
+				    <a href="<%= user.url2 %>" class="link" target="_blank">URL</a>
+				  <% end %>
+					<% if !user.url3.blank? %>
+				    <a href="<%= user.url3 %>" class="link" target="_blank">URL</a>
+				  <% end %>
+				  
 				</div>
 <!--
 				<div class="tags">

@@ -2,7 +2,21 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = User.all
+    @users = Array.new
+  
+    if (!params[:category].blank?) then
+      @users2Check = User.all
+      @users2Check.each do |user|  
+        user.missions.each do |mission|
+          if (params[:category] == mission.category.id.to_s()) 
+            @users.push(user)
+          end
+        end
+      end  
+    else
+      @users = User.all  
+    end    
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,12 +55,26 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    # hardcoded    
-    @user.missions.build :category => Category.find(params[:categories]), :statement => params[:mission_statement]
+    
+    #@user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]
+    
+    if (!params[:mission_statement_1].blank?) then
+      @user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]  
+    end    
+    if (!params[:mission_statement_2].blank?) then
+      @user.missions.build :category => Category.find(params[:categories_2]), :statement => params[:mission_statement_2]  
+    end
+    if (!params[:mission_statement_3].blank?) then
+      @user.missions.build :category => Category.find(params[:categories_3]), :statement => params[:mission_statement_3]  
+    end
+    
+    if @user.url1.include? '@'
+      @user.url1.sub!('@', '')
+    end
     
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(@user, :notice => 'User was successfully created.') }
+        format.html { redirect_to(@user, :notice => 'Thank you for registering at NOLADEX!') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

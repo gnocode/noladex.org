@@ -7,6 +7,13 @@
 	<title>NOLADEX</title>
 	
 	<link rel='stylesheet' href='/stylesheets/style.css'>
+  <script type="text/javascript" src="/js/jquery-1.6.2.min.js"></script>
+  <script type="text/javascript">
+    function category_change() {
+      var category = $('#categories option:selected').val();
+      window.location = "?category=" + category;
+    }
+  </script>
 </head>
 
 <body>
@@ -28,7 +35,7 @@
 		
 		<div id="filter">
 			Find people that: 
-			<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name")) %>
+			<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name", params[:category]),:onchange => "category_change()") %>
 			
 			<!-- <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
 		</div>
