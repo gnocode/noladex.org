@@ -47,13 +47,19 @@
   </div>    
 
 	<div class="field">
-		I&nbsp;<%= select_tag("categories_1", options_from_collection_for_select(Category.all, "id", "name")) %>&nbsp;<%=text_field_tag 'mission_statement_1' %>
+		I&nbsp;
+		<%= select_tag("categories_1", options_from_collection_for_select(Category.all, "id", "name", params[:categories_1])) %>&nbsp;
+		<%=text_field_tag 'mission_statement_1', params[:mission_statement_1] %>
 	</div>
 	<div class="field">
-		  I&nbsp;<%= select_tag("categories_2", options_from_collection_for_select(Category.all, "id", "name")) %>&nbsp;<%=text_field_tag 'mission_statement_2' %>
+	  I&nbsp;
+	  <%= select_tag("categories_2", options_from_collection_for_select(Category.all, "id", "name", params[:categories_2])) %>&nbsp;
+	  <%=text_field_tag 'mission_statement_2', params[:mission_statement_2] %>
 	</div>
 	<div class="field">
-		  I&nbsp;<%= select_tag("categories_3", options_from_collection_for_select(Category.all, "id", "name")) %>&nbsp;<%=text_field_tag 'mission_statement_3' %>
+	  I&nbsp;
+	  <%= select_tag("categories_3", options_from_collection_for_select(Category.all, "id", "name", params[:categories_3])) %>&nbsp;
+	  <%=text_field_tag 'mission_statement_3', params[:mission_statement_3] %>
 	</div>
 	    
   <div class="actions">
