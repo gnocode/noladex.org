@@ -227,7 +227,11 @@ h4 {
 form {
 	text-align: left;
 	color: white;
-	padding: 8px 20px;
+	padding: 20px;
+}
+form h2 {
+	margin: 0 0 25px 0;
+	color: #ffdc88;
 }
 form input[type=text] {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -236,7 +240,13 @@ form input[type=text] {
 	padding: 5px;
 }
 form .field {
-	margin: 0 0 15px 0;
+	margin: 0 0 20px 0;
+	border-left: 5px solid #ffdc88;
+	padding: 0 0 0 15px;
+}
+form .field label {
+	display: block;
+	margin: 0 0 8px 0;
 }
 
 
@@ -247,6 +257,7 @@ footer {
 	right: 0;
 	background: #666;
 	padding: 10px;
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.9);
 }
 
 #wufoo {

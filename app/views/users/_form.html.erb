@@ -1,5 +1,9 @@
 <%= form_for(@user, :html => { :multipart => true } ) do |f| %>
+
+	<h2>+Add Yourself</h2>
+
   <% if @user.errors.any? %>
+
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
@@ -8,40 +12,51 @@
         <li><%= msg %></li>
       <% end %>
       </ul>
+
     </div>
   <% end %>
+	
+	<div class="field">
+  		<label>Your world</label>
+		<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name")) %>
+	</div>
+	
+	<div class="field">
+		<label>Your mission</label>
+		<%=text_field_tag 'mission_statement' %>
+	</div>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name, :placeholder => 'Jane Doe' %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.label :email %>
+    <%= f.text_field :email, :placeholder => 'jane@doe.com' %>
   </div>
   <div class="field">
+	<%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
   <div class="field">
-    <%= f.label :admin %><br />
+    <%= f.label :admin %>
     <%= f.check_box :admin %>
   </div>
   <div class="field">
-    <%= f.label :url1 %><br />
+    <%= f.label :url1 %>
     <%= f.text_field :url1 %>
   </div>  
   <div class="field">
-    <%= f.label :url2 %><br />
+    <%= f.label :url2 %>
     <%= f.text_field :url2 %>
   </div>  
   <div class="field">
-    <%= f.label :url3 %><br />
+    <%= f.label :url3 %>
     <%= f.text_field :url3 %>
-  </div>  
-  <h3>Mission</h3>
-  I&nbsp;<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name")) %>&nbsp;<%=text_field_tag 'mission_statement' %>
+  </div>    
     
   <div class="actions">
-    <%= f.submit %>
+    <input id="user_submit" name="commit" type="submit" value="Submit" class="button">
   </div>
+
 <% end %>
