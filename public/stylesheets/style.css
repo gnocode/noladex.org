@@ -15,7 +15,8 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
-#logo {
+#logo a {
+	display: block;
 	width: 320px;
 	height: 46px;
 	background: url(../images/logo.png);
