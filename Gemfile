@@ -5,7 +5,7 @@ gem "rack-openid"
 
 gem 'rails', '3.0.9'
 
-gem 'mysql2', '0.2.11'
+gem 'sqlite3'
 gem 'paperclip'
 gem 'aws-s3', :require => 'aws/s3'
 gem 'authlogic', :git => 'https://github.com/kreetitech/authlogic.git'
