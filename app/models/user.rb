@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  
+  acts_as_authentic do |c|
+    c.login_field :email 
+    c.require_password_confirmation = false
+  end
+  
   MINIMUM_MISSIONS = 1
   AVATAR_S3_BUCKET = 'noladex.org'
 	has_many :missions
