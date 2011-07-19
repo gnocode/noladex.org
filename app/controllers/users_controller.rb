@@ -6,22 +6,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = Array.new
-  
-    if (!params[:category].blank?) then
-      @users2Check = User.all
-      @users2Check.each do |user|  
-        user.missions.each do |mission|
-          if (params[:category] == mission.category.id.to_s()) 
-            @users.push(user)
-          end
-        end
-      end  
+    if params[:category]
+      @users = User.joins(:missions).where('missions.category_id = ?', params[:category])
+      @users.uniq!
     else
       @users = User.all  
-    end    
-    
-
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @users }
