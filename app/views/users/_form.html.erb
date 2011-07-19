@@ -26,8 +26,12 @@
     <%= f.text_field :email, :placeholder => 'jane@doe.com' %>
   </div>
   <div class="field">
-	  <%= f.label :avatar %>
+    <%= f.label :avatar %>
     <%= f.file_field :avatar %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
   </div>
   <!-- <div class="field">
       <%= f.label :admin %>

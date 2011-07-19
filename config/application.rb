@@ -42,6 +42,8 @@ module Noladex
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     config.middleware.use 'Rack::OpenID'
+    
+    config.mailer_host = "http://localhost:3000"
   end
 end
 
