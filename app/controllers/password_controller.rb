@@ -7,12 +7,13 @@ class PasswordController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:email])
+    user = User.find_by_email(params[:password][:email])
     if user
-      PasswordMailer.password_reset(params[:email], user.perishable_token).deliver
+      PasswordMailer.password_reset(params[:password][:email], user.perishable_token).deliver
       redirect_to root_url, :notice => 'Check your email for password instructions ...'
     else
-      # TODO :: Deal with this sensibly ...
+      # Don't alert the requesting user to the fact that an email does or does not exist ...
+      redirect_to root_url
     end
   end
   
@@ -29,14 +30,8 @@ class PasswordController < ApplicationController
     redirect_to root_url unless @user
     @user.password = params[:user][:password]
     if @user.save!
-      logger.debug "==============================="
-      logger.debug @user.errors.inspect
-      logger.debug "==============================="
       redirect_to root_url, :notice => 'Your password has been changed ...'
     else
-      logger.debug "==============================="
-      logger.debug @user.errors.inspect
-      logger.debug "==============================="
       redirect_to root_url, :error => 'Your password has been changed ...'
     end    
   end
