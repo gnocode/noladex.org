@@ -251,6 +251,15 @@ h4 {
 	margin: 0 5px;
 }
 
+#error_explanation {
+  margin-bottom: 30px;
+}
+
+#error_explanation ul li {
+  list-style: none;
+  margin: 12px;
+}
+
 form {
 	text-align: left;
 	color: white;
