@@ -241,6 +241,7 @@ h4 {
 	vertical-align: middle;
 }
 
+
 #filter select {
 	margin: 0 5px;
 }
@@ -287,6 +288,7 @@ footer {
 }
 footer a {
 	color: white;
+	cursor: pointer;
 }
 
 #about-us {
