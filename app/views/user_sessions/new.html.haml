@@ -1,3 +1,6 @@
+
 = semantic_form_for @user_session, :url => "/user_session/" do |f|
+  %h2 +Sign in
   = f.inputs :email, :password
-  = f.buttons
+  = f.buttons do
+    = f.submit "Sign in", :class => 'button'

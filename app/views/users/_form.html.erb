@@ -1,6 +1,9 @@
 <%= form_for(@user, :html => { :multipart => true } ) do |f| %>
-
-	<h2>+Add Yourself</h2>
+  <% if params[:action] == 'new' %>
+	  <h2>+Add Yourself</h2>
+  <% else %>
+    <h2>+Edit Yourself</h2>
+  <% end %>
 
   <% if @user.errors.any? %>
 

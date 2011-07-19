@@ -240,6 +240,9 @@ h4 {
 	vertical-align: middle;
 }
 
+fieldset {
+  border: none;
+}
 
 form {
 	text-align: left;
@@ -250,18 +253,25 @@ form h2 {
 	margin: 0 0 25px 0;
 	color: #ffdc88;
 }
+
 form input[type=text], form input[type=password] {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
 	font-size: 16px;
 	padding: 5px;
 }
-form .field {
+
+fieldset ol {
+  list-style: none;
+}
+
+form .field, fieldset li {
 	margin: 0 0 20px 0;
 	border-left: 5px solid #ffdc88;
 	padding: 0 0 0 15px;
 }
-form .field label {
+
+label {
 	display: block;
 	margin: 0 0 8px 0;
 }
@@ -374,6 +384,17 @@ footer a {
 		
 }
 
+#navigation {
+  float: right;
+  margin-right: 20px;
+}
+
 #navigation li {
   display: inline;
+  font-size: 12px;
+  margin-right: 20px;
+}
+
+#navigation li a {
+  color: #fff;
 }
