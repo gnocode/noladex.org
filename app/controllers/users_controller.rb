@@ -2,21 +2,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   def index
-    @users = Array.new
-  
-    if (!params[:category].blank?) then
-      @users2Check = User.all
-      @users2Check.each do |user|  
-        user.missions.each do |mission|
-          if (params[:category] == mission.category.id.to_s()) 
-            @users.push(user)
-          end
-        end
-      end  
+    if params[:category]
+      @users = User.find_by_category(params[:category]).shuffle 
     else
-      @users = User.all  
-    end    
-    
+      @users = User.includes(:missions => :category).all.shuffle  
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -55,9 +45,9 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    
+
     #@user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]
-    
+
     if (!params[:mission_statement_1].blank?) then
       @user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]  
     end    
@@ -67,11 +57,11 @@ class UsersController < ApplicationController
     if (!params[:mission_statement_3].blank?) then
       @user.missions.build :category => Category.find(params[:categories_3]), :statement => params[:mission_statement_3]  
     end
-    
+
     if @user.url1.include? '@'
       @user.url1.sub!('@', '')
     end
-    
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'Thank you for registering at NOLADEX!') }
