@@ -48,10 +48,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    if @user.url1.include? '@'
-      @user.url1.sub!('@', '')
-    end
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'Thank you for registering at NOLADEX!') }
