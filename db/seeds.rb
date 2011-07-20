@@ -17,10 +17,10 @@ end
 # missions
 # 12 users
 
-#dog_names = %W(Rover Fido WunderMut Scooby Lassie Spot Lucky Clifford Cujo Milo Blue K-9)
+dog_names = %W(Rover Fido WunderMut Scooby Lassie Spot Lucky Clifford Cujo Milo Blue K-9)
 
-#dog_names.each do |name|
-#  u = User.new(:name => name, :email => "#{name}@dog.com", :url_photo => 'http://placedog.com/300/300')
-#  u.missions.build(:statement => "To be awesome", :category => categories.sample)
-#  u.save!
-#end
+dog_names.each do |name|
+  u = User.new(:name => name, :email => "#{name}@dog.com", :avatar_file_name => 'http://placedog.com/300/300')
+  u.missions.build(:statement => "To be awesome", :category => categories.sample)
+  u.save!
+end
