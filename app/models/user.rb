@@ -24,4 +24,23 @@ class User < ActiveRecord::Base
 	def self.find_by_category(category_id)
 	  includes(:missions => :category).where(["categories.id = ?", category_id])
 	end
+	
+	def validate
+     temp_file = avatar.queued_for_write[:original] #get the file that is being uploaded
+     if (temp_file) 
+       dimensions = Paperclip::Geometry.from_file(temp_file)
+       if (dimensions.width < desired_width) || (dimensions.height < desired_height)
+         errors.add("photo_size", "must be image size #{desired_width}x#{desired_height}.")
+       end
+     end
+  end
+   
+  def desired_height
+    400
+  end
+
+  def desired_width
+    400
+  end
+   
 end
