@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 	accepts_nested_attributes_for :missions
   
   def self.avatar_options
-    {:styles => { :medium => "400x400>" },
+    {:styles => { :medium => "300x300>" },
      :storage => Rails.env.production? ? :s3 : :filesystem,
      :bucket => AVATAR_S3_BUCKET,
      :s3_credentials => {
@@ -36,11 +36,11 @@ class User < ActiveRecord::Base
   end
    
   def desired_height
-    400
+    300
   end
 
   def desired_width
-    400
+    300
   end
    
 end
