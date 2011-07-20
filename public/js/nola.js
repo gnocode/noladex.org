@@ -4,8 +4,6 @@ $(document).delegate(".person", "hover", function() {
 	
 });
 
-$("#wufoo, #about-text").hide();
-
 $("#contact a").click(function() {
 	$("#wufoo").slideToggle();	
 });

@@ -297,6 +297,7 @@ footer {
 }
 
 #wufoo {
+  display: none;
 	position: absolute;
 	left: 0;
 	bottom: 35px;
@@ -312,6 +313,7 @@ footer a {
 	top: 10px;
 }
 #about-text {
+  display: none;
 	position: absolute;
 	bottom: 35px;
 	right: 10px;
