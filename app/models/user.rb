@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   AVATAR_S3_BUCKET = 'noladex.org'
 	has_many :missions
 	
-	accepts_nested_attributes_for :missions
+	accepts_nested_attributes_for :missions, :reject_if => proc {|attributes| attributes['statement'].blank? }
   
   def self.avatar_options
     {:styles => { :medium => "300x300>" },
