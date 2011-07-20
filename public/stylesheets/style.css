@@ -258,6 +258,7 @@ h4 {
 #error_explanation ul li {
   list-style: none;
   margin: 12px;
+  color: #bd2c00;
 }
 
 form {
