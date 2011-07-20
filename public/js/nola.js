@@ -1,3 +1,8 @@
+$(document).ready(function(){
+  // Function	that loads FancyZoom on page load
+  setupZoom();
+});
+
 $(document).delegate(".person", "hover", function() {
 	
 	$("#tagline").val($(this).find(".tag").text());
