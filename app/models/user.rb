@@ -21,7 +21,9 @@ class User < ActiveRecord::Base
 	validates :missions, :length => { :minimum => MINIMUM_MISSIONS, :message => "You must have at least one mission to be listed."}
 	validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 	validate :avatar_size
-	
+
+	before_save :fix_urls
+
 	def self.find_by_category(category_id)
 	  includes(:missions => :category).where(["categories.id = ?", category_id])
 	end
@@ -44,5 +46,11 @@ class User < ActiveRecord::Base
 
   def desired_width
     300
+  end
+
+  def fix_urls
+    self.url1 = url1.gsub(%r{(^https?://twitter.com/(#!/)?|@)}, '') unless url1.blank?
+    self.url2 = "http://#{url2}" if !url2.blank? && !url2.match(%r{^https?://})
+    self.url3 = "http://#{url3}" if !url3.blank? && !url3.match(%r{^https?://})
   end
 end
