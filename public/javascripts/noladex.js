@@ -2,16 +2,18 @@ var noladex = {
 	run : function () {
 		this.bindCategoryChange();
 		this.setupFancyZoom();
+		this.setupWooFoo();
 
-
+		$("#about-us a").click(function() {
+			$("#about-text").slideToggle();	
+		});
+	},
+	
+	setupWooFoo : function() {
 		$("#wufoo, #about-text").hide();
 
 		$("#contact a").click(function() {
 			$("#wufoo").slideToggle();	
-		});
-
-		$("#about-us a").click(function() {
-			$("#about-text").slideToggle();	
 		});
 	},
 

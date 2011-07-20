@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.xml  { render :xml => @users }
     end
   end
