@@ -11,3 +11,8 @@ $("#contact a").click(function() {
 $("#about-us a").click(function() {
 	$("#about-text").slideToggle();	
 });
+
+function category_change() {
+  var category = $('#categories option:selected').val();
+  window.location = "?category=" + category;
+}
