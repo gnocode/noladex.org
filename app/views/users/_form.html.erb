@@ -1,6 +1,9 @@
 <%= form_for(@user, :html => { :multipart => true } ) do |f| %>
-
-	<h2>+Add Yourself</h2>
+  <% if params[:action] == 'new' %>
+	  <h2>+Add Yourself</h2>
+  <% else %>
+    <h2>+Edit Yourself</h2>
+  <% end %>
 
   <% if @user.errors.any? %>
 
@@ -27,15 +30,20 @@
   </div>
   
   <div class="field">
-	  <%= f.label :avatar %>
+    <%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
-  To look your best, please scale images to 400x400 before uploading. Thx!<br/><br/>
-  
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
   <!-- <div class="field">
       <%= f.label :admin %>
       <%= f.check_box :admin %>
     </div> -->
+
   <div class="field">
     <%= f.label :Twitter %>
     <%= f.text_field :url1, :placeholder => "@whatever" %>

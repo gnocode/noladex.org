@@ -1,4 +1,7 @@
 Noladex::Application.routes.draw do
+
+  resource :user_session
+  
   resources :missions
 
   resources :neighborhoods
@@ -8,7 +11,13 @@ Noladex::Application.routes.draw do
   resources :categories
 
   resources :users
+
   resource :session
+
+  resources :password
+
+  match 'logout', :controller => 'user_sessions', :action => 'destroy', :as => 'logout'
+  match 'login', :controller => 'user_sessions', :action => 'new', :as => 'login'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

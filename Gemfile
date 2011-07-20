@@ -3,11 +3,14 @@ source 'http://rubygems.org'
 gem "ruby-openid"
 gem "rack-openid"
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 gem 'paperclip'
 gem 'aws-s3', :require => 'aws/s3'
+gem 'authlogic', :git => 'https://github.com/kreetitech/authlogic.git'
+gem 'formtastic'
+gem 'haml'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
