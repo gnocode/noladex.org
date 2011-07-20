@@ -20,12 +20,15 @@ class User < ActiveRecord::Base
 	validates_presence_of :name, :email, :avatar_file_name
 	validates :missions, :length => { :minimum => MINIMUM_MISSIONS, :message => "You must have at least one mission to be listed."}
 	validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+	validate :avatar_size
 	
 	def self.find_by_category(category_id)
 	  includes(:missions => :category).where(["categories.id = ?", category_id])
 	end
-	
-	def validate
+
+  private
+
+	def avatar_size
      temp_file = avatar.queued_for_write[:original] #get the file that is being uploaded
      if (temp_file) 
        dimensions = Paperclip::Geometry.from_file(temp_file)
@@ -42,5 +45,4 @@ class User < ActiveRecord::Base
   def desired_width
     300
   end
-   
 end
