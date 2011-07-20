@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 	validates :missions, :length => { :minimum => MINIMUM_MISSIONS, :message => "You must have at least one mission to be listed."}
 	validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
 	
-	 def self.find_by_category(category_id)
+	def self.find_by_category(category_id)
 	  includes(:missions => :category).where(["categories.id = ?", category_id])
 	end
 end
