@@ -3,12 +3,11 @@
 
 	 <div id="person-<% user.id %>" class="person">
 		
-		<img style="display: inline-block" src="<%= user.avatar.url(:medium) %>" />
+		<img style="display: inline-block" src="<%= user.avatar.url(:medium) %>" width="400" height="400" />
 	
 			<div class="overlay">
 
 				<h2><%= user.name %></h2>
-
 				
 				<% if !user.missions[0].nil? then %>
 				  <p class="tag">I <%=user.missions[0].category.name.downcase %>&nbsp;<%=user.missions[0].statement %> </p>
