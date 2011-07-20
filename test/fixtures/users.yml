@@ -1,13 +1,15 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  email: MyString
-  url_photo: MyString
+gob:
+  name: Gob Bluth
+  email: gob@example.com
+  avatar_file_name: magic.png
   admin: false
+  url1: magician69
 
-two:
-  name: MyString
-  email: MyString
-  url_photo: MyString
+michael:
+  name: Michael Bluth
+  email: michael@example.com
+  avatar_file_name: boring.png
   admin: false
+  url1: michaelbluth
