@@ -48,18 +48,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    #@user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]
-
-    if (!params[:mission_statement_1].blank?) then
-      @user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]  
-    end    
-    if (!params[:mission_statement_2].blank?) then
-      @user.missions.build :category => Category.find(params[:categories_2]), :statement => params[:mission_statement_2]  
-    end
-    if (!params[:mission_statement_3].blank?) then
-      @user.missions.build :category => Category.find(params[:categories_3]), :statement => params[:mission_statement_3]  
-    end
-
     if @user.url1.include? '@'
       @user.url1.sub!('@', '')
     end
@@ -69,6 +57,8 @@ class UsersController < ApplicationController
         format.html { redirect_to(@user, :notice => 'Thank you for registering at NOLADEX!') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
+        (3-@user.missions.size).times { @user.missions.build }
+
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
