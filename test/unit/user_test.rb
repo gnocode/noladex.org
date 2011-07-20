@@ -11,18 +11,18 @@ class UserTest < ActiveSupport::TestCase
     assert !@user.valid?
   end
 
-  test "twitter url removes the @" do
+  test "url1 removes the @" do
     @user.url1 = '@gob'
     @user.save
 
     assert @user.url1 == 'gob'
   end
 
-  test "twitter url removes the twitter url" do
+  test "url1 removes the twitter url" do
     @user.url1 = 'https://twitter.com/#!/franklin'
     @user.save
 
-    assert @user.url1 = 'franklin'
+    assert @user.url1 == 'franklin'
   end
 
   test "urls should have http:// unless specified" do
