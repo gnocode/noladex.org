@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :name, :email, :avatar_file_name
 	validates :missions, :length => { :minimum => MINIMUM_MISSIONS, :message => "You must have at least one mission to be listed."}
 	validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
-<<<<<<< HEAD
+
 	validate :avatar_size
 
 	before_save :fix_urls
@@ -60,10 +60,4 @@ class User < ActiveRecord::Base
     self.url2 = "http://#{url2}" if !url2.blank? && !url2.match(%r{^https?://})
     self.url3 = "http://#{url3}" if !url3.blank? && !url3.match(%r{^https?://})
   end
-=======
-	
-	def self.find_by_category(category_id)
-	  includes(:missions => :category).where(["categories.id = ?", category_id])
-	end
->>>>>>> 716a2e2d96020e77c99dda670cf55f77c12725fc
 end
