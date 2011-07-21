@@ -67,9 +67,9 @@ h4 {
 
 .tag {
 	font-family: Helvetica, Arial, sans-serif;
-	padding: 5px 0;
+	padding: 3px 0;
 	font-size: 12px;
-	line-height: 18px;
+	line-height: 16px;
 }
 
 #people {
@@ -204,7 +204,7 @@ h4 {
 	border-radius:         10px;
 	text-indent: -9999px;
 	background: white;
-	margin: 0 3x;
+	margin: 0 3px;
 }
 .icons a:hover {
 	-webkit-box-shadow: 0 0 10px white;
