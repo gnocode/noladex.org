@@ -40,7 +40,9 @@
 			<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name", params[:category]),:onchange => "category_change()") %>
 			
 			<!-- <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
+  		<%= render :partial => 'shared/navigation' %>
 		</div>
+
 	</section>
 	<section id="people">
 		<%= yield %>	
