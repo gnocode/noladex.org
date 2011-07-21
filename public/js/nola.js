@@ -1,10 +1,13 @@
+$(document).ready(function(){
+  // Function	that loads FancyZoom on page load
+  setupZoom();
+});
+
 $(document).delegate(".person", "hover", function() {
 	
 	$("#tagline").val($(this).find(".tag").text());
 	
 });
-
-$("#wufoo, #about-text").hide();
 
 $("#contact a").click(function() {
 	$("#wufoo").slideToggle();	
@@ -13,3 +16,8 @@ $("#contact a").click(function() {
 $("#about-us a").click(function() {
 	$("#about-text").slideToggle();	
 });
+
+function category_change() {
+  var category = $('#categories option:selected').val();
+  window.location = "?category=" + category;
+}

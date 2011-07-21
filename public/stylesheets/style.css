@@ -251,6 +251,7 @@ h4 {
 	margin: 0 5px;
 }
 
+<<<<<<< HEAD
 #error_explanation {
   margin-bottom: 30px;
 }
@@ -259,6 +260,10 @@ h4 {
   list-style: none;
   margin: 12px;
   color: #bd2c00;
+=======
+fieldset {
+  border: none;
+>>>>>>> 716a2e2d96020e77c99dda670cf55f77c12725fc
 }
 
 form {
@@ -270,18 +275,25 @@ form h2 {
 	margin: 0 0 25px 0;
 	color: #ffdc88;
 }
-form input[type=text] {
+
+form input[type=text], form input[type=password] {
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
 	font-size: 16px;
 	padding: 5px;
 }
-form .field {
+
+fieldset ol {
+  list-style: none;
+}
+
+form .field, fieldset li {
 	margin: 0 0 20px 0;
 	border-left: 5px solid #ffdc88;
 	padding: 0 0 0 15px;
 }
-form .field label {
+
+label {
 	display: block;
 	margin: 0 0 8px 0;
 }
@@ -297,6 +309,7 @@ footer {
 }
 
 #wufoo {
+  display: none;
 	position: absolute;
 	left: 0;
 	bottom: 35px;
@@ -312,6 +325,7 @@ footer a {
 	top: 10px;
 }
 #about-text {
+  display: none;
 	position: absolute;
 	bottom: 35px;
 	right: 10px;
@@ -402,4 +416,19 @@ footer a {
 		margin: 0 0 10px 0;
 	}
 		
+}
+
+#navigation {
+  float: right;
+  margin-right: 20px;
+}
+
+#navigation li {
+  display: inline;
+  font-size: 12px;
+  margin-right: 20px;
+}
+
+#navigation li a {
+  color: #fff;
 }

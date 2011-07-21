@@ -10,13 +10,6 @@
 	<meta name="keywords" content="nola, noladex, nolodex, rolodex, new orleans, louisiana, talent, creative, class, community, artist, designer, developer, business, teacher, healer, create, art, web, entreprenuer">
 	
 	<link rel='stylesheet' href='/stylesheets/style.css'>
-  <script type="text/javascript" src="/js/jquery-1.6.2.min.js"></script>
-  <script type="text/javascript">
-    function category_change() {
-      var category = $('#categories option:selected').val();
-      window.location = "?category=" + category;
-    }
-  </script>
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-24621816-1']);
@@ -47,7 +40,9 @@
 			<%= select_tag("categories", options_from_collection_for_select(Category.all, "id", "name", params[:category]),:onchange => "category_change()") %>
 			
 			<!-- <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
+  		<%= render :partial => 'shared/navigation' %>
 		</div>
+
 	</section>
 	<section id="people">
 		<%= yield %>	
@@ -99,11 +94,5 @@
 	<script src="/js/nola.js"></script>
 	<script src="/js/FancyZoom.js" type="text/javascript"></script>
   <script src="/js/FancyZoomHTML.js" type="text/javascript"></script>
-  <script>
-  $(document).ready(function(){
-    // Function	that loads FancyZoom on page load
-	  window.onLoad = setupZoom();
-  });
-  </script>
 </body>
 </html>
