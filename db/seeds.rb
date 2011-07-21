@@ -6,21 +6,18 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-
-# categories: create build, organize, heal, teach
-
 categories = []
   ["Create", "Build", "Organize", "Heal", "Teach"].each do | name |
 	categories << Category.create(:name => name)
 end
 
-# missions
-# 12 users
-
-#dog_names = %W(Rover Fido WunderMut Scooby Lassie Spot Lucky Clifford Cujo Milo Blue K-9)
-
-#dog_names.each do |name|
-#  u = User.new(:name => name, :email => "#{name}@dog.com", :url_photo => 'http://placedog.com/300/300')
-#  u.missions.build(:statement => "To be awesome", :category => categories.sample)
-#  u.save!
-#end
+9.times do |idx|
+  user = User.new(:password => 'secret', :name => "User #{idx + 1}", :email => "user#{idx}@noladex.org", :avatar => File.open(File.join(Rails.root, 'db', 'fixtures', 'kitten.jpeg')))
+  3.times do |mdx|
+    user.missions << Mission.new(:statement => 'mission statements ...', :category_id => rand(5) + 1)
+  end
+  user.url1 = "@user#{idx + 1}"
+  user.url2 = "http://www.user#{idx + 1}.com"
+  user.url3 = "http://wwww.facebook.com/user#{idx + 1}"
+  user.save!
+end

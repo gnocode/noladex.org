@@ -10,7 +10,6 @@
 	<meta name="keywords" content="nola, noladex, nolodex, rolodex, new orleans, louisiana, talent, creative, class, community, artist, designer, developer, business, teacher, healer, create, art, web, entreprenuer">
 	
 	<link rel='stylesheet' href='/stylesheets/style.css'>
- 
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-24621816-1']);
@@ -41,7 +40,9 @@
 			<%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name", params[:category]) %>
 			
 			<!-- <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
+  		<%= render :partial => 'shared/navigation' %>
 		</div>
+
 	</section>
 	<section id="people">
 		<%= yield %>	
@@ -88,6 +89,8 @@
 			</div>
 		</div>
 	</footer>
+
 	<%= javascript_include_tag "jquery.min", "jquery_ujs", "plugins", "noladex.js" %>
+
 </body>
 </html>

@@ -1,25 +1,14 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.xml
+
+  # before_filter :require_no_user, :only => [:new, :create]
+  before_filter :require_user, :only => [:show, :edit, :update, :destroy]
+
   def index
-    @users = Array.new
-  
-    if (!params[:category].blank?) then
-      @users2Check = User.all.shuffle
-      @users2Check.each do |user|  
-        user.missions.each do |mission|
-          if (params[:category] == mission.category.id.to_s()) 
-            if (!@users.include? user) 
-              @users.push(user)              
-            end
-            
-          end
-        end
-      end  
+    if params[:category]
+      @users = User.find_by_category(params[:category]).shuffle 
     else
-      @users = User.all.shuffle  
-    end    
-    
+      @users = User.includes(:missions => :category).all.shuffle  
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,8 +17,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/1
-  # GET /users/1.xml
   def show
     @user = User.find(params[:id])
 
@@ -39,10 +26,9 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
-  # GET /users/new.xml
   def new
     @user = User.new
+    3.times { @user.missions.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -53,15 +39,16 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    (3-@user.missions.size).times { @user.missions.build }
   end
 
   # POST /users
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-    
+
     #@user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]
-    
+
     if (!params[:mission_statement_1].blank?) then
       @user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]  
     end    
@@ -71,16 +58,18 @@ class UsersController < ApplicationController
     if (!params[:mission_statement_3].blank?) then
       @user.missions.build :category => Category.find(params[:categories_3]), :statement => params[:mission_statement_3]  
     end
-    
+
     if @user.url1.include? '@'
       @user.url1.sub!('@', '')
     end
-    
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'Thank you for registering at NOLADEX!') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
+        (3-@user.missions.size).times { @user.missions.build }
+
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
@@ -94,7 +83,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(root_url, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

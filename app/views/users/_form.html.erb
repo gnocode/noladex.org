@@ -1,6 +1,9 @@
 <%= form_for(@user, :html => { :multipart => true } ) do |f| %>
-
-	<h2>+Add Yourself</h2>
+  <% if params[:action] == 'new' %>
+	  <h2>+Add Yourself</h2>
+  <% else %>
+    <h2>+Edit Yourself</h2>
+  <% end %>
 
   <% if @user.errors.any? %>
 
@@ -19,46 +22,49 @@
 	
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name, :placeholder => 'Jane Doe' %>
+    <%= f.text_field :name, :placeholder => 'John Doe' %>
   </div>
   <div class="field">
     <%= f.label :email %>
-    <%= f.text_field :email, :placeholder => 'jane@doe.com' %>
+    <%= f.text_field :email, :placeholder => 'john@doe.com' %>
   </div>
   
   <div class="field">
-	  <%= f.label :avatar %>
+    <%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
-  To look your best, please scale images to 400x400 before uploading. Thx!<br/><br/>
-  
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+
   <!-- <div class="field">
       <%= f.label :admin %>
       <%= f.check_box :admin %>
     </div> -->
+
   <div class="field">
-    <%= f.label :Twitter %>
-    <%= f.text_field :url1, :placeholder => "@whatever" %>
+    <%= f.label :url1, 'Twitter' %>
+    <%= f.text_field :url1, :placeholder => "@johndoe" %>
   </div>  
   <div class="field">
-    <%= f.label :URL %>
-    <%= f.text_field :url2, :placeholder => "http://janedoe.com" %>
+    <%= f.label :url2, 'URL' %>
+    <%= f.text_field :url2, :placeholder => "http://johndoe.com" %>
   </div>      
   <div class="field">
-    <%= f.label :URL %>
+    <%= f.label :url3, 'URL' %>
     <%= f.text_field :url3, :placeholder => "http://johndoe.com" %>
-  </div>    
+  </div>
 
-	<div class="field">
-		I&nbsp;<%= select_tag("categories_1", options_from_collection_for_select(Category.all, "id", "name")) %>&nbsp;<%=text_field_tag 'mission_statement_1' %>
-	</div>
-	<div class="field">
-		  I&nbsp;<%= select_tag("categories_2", options_from_collection_for_select(Category.all, "id", "name")) %>&nbsp;<%=text_field_tag 'mission_statement_2' %>
-	</div>
-	<div class="field">
-		  I&nbsp;<%= select_tag("categories_3", options_from_collection_for_select(Category.all, "id", "name")) %>&nbsp;<%=text_field_tag 'mission_statement_3' %>
-	</div>
-	    
+  <%= f.fields_for :missions do |m| %>
+    <div class="field">
+      I&nbsp;
+      <%= m.select :category_id, Category.all.map {|x| [x.name, x.id]} %>
+      <%= m.text_field :statement %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <input id="user_submit" name="commit" type="submit" value="Submit" class="button">
   </div>

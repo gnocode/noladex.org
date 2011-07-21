@@ -1,24 +1,44 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test "with no missions is invalid" do
-  	u = valid_user
-  	u.missions = []
-  	debugger
-    
-    assert !u.valid?
+  setup do
+    @user = users(:gob)
   end
-  
-  def valid_user
-    u = User.new(:name => 'asdf', :email => 'lkjl', :url_photo => 'sadf')
-    
-    c = Category.create!(:name => 'Heal')
-    
-    User::MINIMUM_MISSIONS.times do
-      u.missions.build(:statement => 'derp derp derp', :category => c)
-    end
-    
-    raise "User setup in tests is invalid: #{u.errors}" if !u.valid?
-    u
+
+  test "with no missions is invalid" do
+    @user.missions = []
+
+    assert !@user.valid?
+  end
+
+  test "url1 removes the @" do
+    @user.url1 = '@gob'
+    @user.save
+
+    assert @user.url1 == 'gob'
+  end
+
+  test "url1 removes the twitter url" do
+    @user.url1 = 'https://twitter.com/#!/franklin'
+    @user.save
+
+    assert @user.url1 == 'franklin'
+  end
+
+  test "urls should have http:// unless specified" do
+    @user.url2 = 'example.com'
+    @user.url3 = 'http://somethingelse.com'
+    @user.save
+
+    assert @user.url2 == 'http://example.com'
+    assert @user.url3 == 'http://somethingelse.com'
+  end
+
+  test "if a url is blank, do not add http://" do
+    @user.url2 = ''
+    @user.save
+
+    assert @user.url2.blank?
+    assert @user.url3.blank?
   end
 end
