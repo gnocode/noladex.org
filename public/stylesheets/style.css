@@ -251,7 +251,6 @@ h4 {
 	margin: 0 5px;
 }
 
-<<<<<<< HEAD
 #error_explanation {
   margin-bottom: 30px;
 }
@@ -260,10 +259,9 @@ h4 {
   list-style: none;
   margin: 12px;
   color: #bd2c00;
-=======
+
 fieldset {
   border: none;
->>>>>>> 716a2e2d96020e77c99dda670cf55f77c12725fc
 }
 
 form {
