@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
      if (temp_file) 
        dimensions = Paperclip::Geometry.from_file(temp_file)
        if (dimensions.width < desired_width) || (dimensions.height < desired_height)
-         errors.add("photo_size", "must be image size #{desired_width}x#{desired_height}.")
+         errors.add("photo_size", "must be #{desired_width}x#{desired_height}.")
        end
      end
   end
