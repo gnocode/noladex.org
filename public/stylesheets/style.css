@@ -317,6 +317,13 @@ footer a {
 	cursor: pointer;
 }
 
+#counted {
+  position: absolute;
+  text-align: center;
+	width: 100em;
+	top: 10px;
+}
+
 #about-us {
 	position: absolute;
 	right: 10px;
