@@ -320,7 +320,7 @@ footer a {
 #counted {
   position: absolute;
   text-align: center;
-	width: 100em;
+	width: 100%;
 	top: 10px;
 }
 

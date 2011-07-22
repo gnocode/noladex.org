@@ -65,7 +65,18 @@
 			</div>					
 		</div>
 			
-		<div id="counted"><a href="/"><%=User.all().size%> New Orleanians on NOLADEX</a></div>
+		<div id="counted">
+		  <%
+		    if params[:category]		      
+		      @category = Category.find(params[:category])
+		      @category_name = @category.name if !@category.nil?		      
+		      @count = User.find_by_category(params[:category]).size 
+		    else
+		      @count = User.all().size
+	      end
+		  %>
+		  <a href="/"><%=@count %> people NOLADEXed <%= @category_name.downcase if !@category_name.nil? %></a>		  		 
+	  </div>
 	    	
 		<div id="about-us">
 			<a>About NOLADEX</a>		
