@@ -62,8 +62,22 @@
 				'height':'455'});
 				z7x3k7.display();
 				</script>
-			</div>
+			</div>					
 		</div>
+			
+		<div id="counted">
+		  <%
+		    if params[:category]		      
+		      @category = Category.find(params[:category])
+		      @category_name = @category.name if !@category.nil?		      
+		      @count = User.find_by_category(params[:category]).size 
+		    else
+		      @count = User.all().size
+	      end
+		  %>
+		  <a href="/"><%=@count %> people NOLADEXed <%= @category_name.downcase if !@category_name.nil? %></a>		  		 
+	  </div>
+	    	
 		<div id="about-us">
 			<a>About NOLADEX</a>		
 			<div id="about-text">
