@@ -1,7 +1,6 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  statement: MyString
-
-two:
-  statement: MyString
+stuff:
+  category: create
+  statement: Stuff
+  user: gob
