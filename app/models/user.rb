@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 	accepts_nested_attributes_for :missions, :reject_if => proc {|attributes| attributes['statement'].blank? }
   
   def self.avatar_options
-    {:styles => { :medium => "300x300>" },
+    {:styles => { :medium => "300x300#" },
      :storage => Rails.env.production? ? :s3 : :filesystem,
      :bucket => AVATAR_S3_BUCKET,
      :s3_credentials => {
