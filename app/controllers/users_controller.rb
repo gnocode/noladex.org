@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
 
-  # before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update, :destroy]
 
   def index
     if params[:category]
-      @users = User.find_by_category(params[:category]).shuffle 
+      @users = User.find_by_category(params[:category]).shuffle
     else
-      @users = User.includes(:missions => :category).all.shuffle  
+      @users = User.includes(:missions => :category).all.shuffle
     end
 
     respond_to do |format|
@@ -18,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
     (3-@user.missions.size).times { @user.missions.build }
   end
 
@@ -65,7 +64,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(@user, :notice => 'Thank you for registering at NOLADEX!') }
+        format.html { redirect_to(root_url, :notice => 'Thank you for registering at NOLADEX!') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         (3-@user.missions.size).times { @user.missions.build }
@@ -79,10 +78,8 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    @user = User.find(params[:id])
-
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if current_user.update_attributes(params[:user])
         format.html { redirect_to(root_url, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -92,15 +89,15 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.xml
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(users_url) }
-      format.xml  { head :ok }
-    end
-  end
+  # # DELETE /users/1
+  # # DELETE /users/1.xml
+  # def destroy
+  #   @user = User.find(params[:id])
+  #   @user.destroy
+  # 
+  #   respond_to do |format|
+  #     format.html { redirect_to(users_url) }
+  #     format.xml  { head :ok }
+  #   end
+  # end
 end

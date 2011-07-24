@@ -245,6 +245,9 @@ h4 {
 	vertical-align: middle;
 }
 
+fieldset {
+  border: none;
+}
 
 #filter select {
 	margin: 0 5px;
