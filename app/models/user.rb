@@ -60,8 +60,4 @@ class User < ActiveRecord::Base
     self.url2 = "http://#{url2}" if !url2.blank? && !url2.match(%r{^https?://})
     self.url3 = "http://#{url3}" if !url3.blank? && !url3.match(%r{^https?://})
   end
-	
-	def self.find_by_category(category_id)
-	  includes(:missions => :category).where(["categories.id = ?", category_id])
-	end
 end
