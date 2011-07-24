@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     end
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.js
       format.xml  { render :xml => @users }
     end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.xml  { render :xml => @user }
     end
   end
@@ -30,19 +30,16 @@ class UsersController < ApplicationController
     3.times { @user.missions.build }
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.xml  { render :xml => @user }
     end
   end
 
-  # GET /users/1/edit
   def edit
     @user = current_user
     (3-@user.missions.size).times { @user.missions.build }
   end
 
-  # POST /users
-  # POST /users.xml
   def create
     @user = User.new(params[:user])
 
@@ -75,8 +72,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.xml
   def update
     respond_to do |format|
       if current_user.update_attributes(params[:user])
@@ -89,15 +84,4 @@ class UsersController < ApplicationController
     end
   end
 
-  # # DELETE /users/1
-  # # DELETE /users/1.xml
-  # def destroy
-  #   @user = User.find(params[:id])
-  #   @user.destroy
-  # 
-  #   respond_to do |format|
-  #     format.html { redirect_to(users_url) }
-  #     format.xml  { head :ok }
-  #   end
-  # end
 end
