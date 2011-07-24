@@ -199,17 +199,16 @@ h4 {
 	display: inline-block;
 	width: 20px;
 	height: 20px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius:    10px;
-	border-radius:         10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius:    5px;
+	border-radius:         5px;
 	text-indent: -9999px;
-	background: white;
 	margin: 0 3px;
 }
 .icons a:hover {
-	-webkit-box-shadow: 0 0 10px white;
-	-moz-box-shadow:    0 0 10px white;
-	box-shadow:         0 0 10px white;
+	-webkit-box-shadow: 0 0 5px white;
+	-moz-box-shadow:    0 0 5px white;
+	box-shadow:         0 0 5px white;
 }
 .icons .twitter {
 	background: url(../images/twitter_icon.png);
