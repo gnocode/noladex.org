@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   validates :missions, :length => { :minimum => Constants::MinimumMissions, :message => "You must have at least one mission to be listed."}
   validate :avatar_size
 
-  before_save :fix_urls
+  before_save :format_urls
 
   accepts_nested_attributes_for :missions, :reject_if => proc {|attributes| attributes['statement'].blank? }
 
@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def fix_urls
+  def format_urls
     self.url1 = url1.gsub(%r{(^https?://twitter.com/(#!/)?|@)}, '') unless url1.blank?
     self.url2 = "http://#{url2}" if !url2.blank? && !url2.match(%r{^https?://})
     self.url3 = "http://#{url3}" if !url3.blank? && !url3.match(%r{^https?://})
