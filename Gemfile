@@ -21,3 +21,12 @@ gem 'haml'
 group :development, :test do
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
+
+group :test do
+  gem 'guard'
+  gem 'guard-test'
+  gem 'guard-bundler'
+  gem 'growl'
+  gem 'rb-fsevent'
+  gem 'shoulda'
+end

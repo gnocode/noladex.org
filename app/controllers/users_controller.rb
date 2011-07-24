@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :require_user, :only => [:show, :edit, :update, :destroy]
+  before_filter :require_user, :only => [:edit, :update, :destroy]
 
   def index
     if params[:category]
@@ -16,14 +16,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = current_user
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @user }
-    end
-  end
+  # def show
+  #   @user = current_user
+  # 
+  #   respond_to do |format|
+  #     format.html
+  #     format.xml  { render :xml => @user }
+  #   end
+  # end
 
   def new
     @user = User.new
@@ -74,10 +74,12 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if current_user.update_attributes(params[:user])
+      @user = current_user
+      if @user.update_attributes(params[:user])
         format.html { redirect_to(root_url, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
       else
+        p @user.errors
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end

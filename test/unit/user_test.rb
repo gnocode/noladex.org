@@ -13,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "url1 removes the @" do
     @user.url1 = '@gob'
-    @user.save
+    @user.save!
 
     assert @user.url1 == 'gob'
   end

@@ -6,6 +6,10 @@ gob:
   avatar_file_name: magic.png
   admin: false
   url1: magician69
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("ive_made_a_huge_mistake" + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  single_access_token: <%= Authlogic::Random.friendly_token %>
 
 michael:
   name: Michael Bluth
@@ -13,3 +17,7 @@ michael:
   avatar_file_name: boring.png
   admin: false
   url1: michaelbluth
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("ive_made_a_huge_mistake" + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  single_access_token: <%= Authlogic::Random.friendly_token %>
