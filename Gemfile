@@ -7,6 +7,7 @@ gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 gem 'paperclip'
+gem 'paperclip-meta'
 gem 'aws-s3', :require => 'aws/s3'
 gem "jquery-rails"
 gem "kaminari"

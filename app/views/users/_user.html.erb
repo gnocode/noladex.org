@@ -1,10 +1,10 @@
 <div id="person-<%= user.id %>" class="person">
-	<img style="display: inline-block" src="<%= user.avatar.url(:medium) %>" width="300" height="300" />
+	<%= display_photo user.avatar %>
 	<div class="overlay">
 		<h2><%= user.name %></h2>
 
 		<% user.missions.each do |mission| %>
-		<p class="tag">I <%= mission.category.name.downcase %> <%= mission.statement %></p>
+			<p class="tag">I <%= mission.category.name.downcase %> <%= mission.statement %></p>
 		<% end %>
 
 		<div class='icons'>
