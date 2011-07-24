@@ -16,15 +16,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def show
-  #   @user = current_user
-  # 
-  #   respond_to do |format|
-  #     format.html
-  #     format.xml  { render :xml => @user }
-  #   end
-  # end
-
   def new
     @user = User.new
     3.times { @user.missions.build }
