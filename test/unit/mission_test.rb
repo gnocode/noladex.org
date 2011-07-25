@@ -1,8 +1,5 @@
 require 'test_helper'
 
 class MissionTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  should validate_presence_of :statement
 end
