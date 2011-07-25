@@ -1,0 +1,12 @@
+For the next deployment:
+
+Joe Ellis - 7-24-2011
+====================
+run "heroku rake db:migrate" to update to the latest db schema
+
+run "heroku console" and inside run the following code:
+	User.all.each{|u| u.avatar.reprocess!; u.save!}
+
+This code is to add width and height meta data to the images already uploaded
+
+run "heroku restart"

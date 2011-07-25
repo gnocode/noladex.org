@@ -151,6 +151,7 @@ h4 {
   margin: 5px;
 }
 .person img {
+	display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
@@ -245,6 +246,9 @@ h4 {
 	vertical-align: middle;
 }
 
+fieldset {
+  border: none;
+}
 
 #filter select {
 	margin: 0 5px;
