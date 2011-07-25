@@ -350,6 +350,26 @@ footer a {
 	border-bottom-style: solid;
 }
 
+#about-text a#twitbox, #about-text a#facbok {
+	border-bottom: none;
+	display: block;
+	text-indent: -9999px;
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 20px;	
+}
+
+#about-text #twitbox { background: url(../images/icon_twitter.png) no-repeat center center; right: 20px; }
+#about-text #facbok { background: url(../images/icon_facebook.png) no-repeat center center; right: 48px; }
+
+#about-text #credits {
+	padding: 5px 0;
+	margin-top: 10px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
 @media (max-width:600px) {
 
 	h3,
