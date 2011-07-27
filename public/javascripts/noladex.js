@@ -3,6 +3,7 @@ var noladex = {
 		this.bindCategoryChange();
 		this.setupFancyZoom();
 		this.setupWooFoo();
+		this.bindHovers();
 
 		$("#about-us a").click(function() {
 			$("#about-text").slideToggle();	
