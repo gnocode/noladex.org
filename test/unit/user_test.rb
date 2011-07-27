@@ -34,6 +34,15 @@ class UserTest < ActiveSupport::TestCase
     assert @user.url3 == 'http://somethingelse.com'
   end
 
+  test "urls should not add http:// or mailto: if it's already specified" do
+    @user.url2 = 'mailto:gob@example.com'
+    @user.url3 = 'http://whatever.com'
+    @user.save
+
+    assert @user.url2 == 'mailto:gob@example.com'
+    assert @user.url3 == 'http://whatever.com'
+  end
+
   test "if a url is blank, do not add http://" do
     @user.url2 = ''
     @user.save
