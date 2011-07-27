@@ -9,12 +9,13 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, {
     :styles => { :medium => "300x300#" },
     :storage => Rails.env.production? ? :s3 : :filesystem,
-    :bucket => 'noladex.org',
+    :bucket => 'noladex.org', 
     :s3_credentials => {
       :access_key_id => ENV['S3_KEY'],
       :secret_access_key => ENV['S3_SECRET']
     }
   }
+
 
   validates_presence_of :name, :email, :avatar_file_name
   validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
