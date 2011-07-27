@@ -19,13 +19,13 @@ run "heroku restart"
   ...................................................
   (completed 7-27-2011 by tritico)
   ...................................................
-  Unfortunatly, this did not work due to a time out.
+  Unfortunately, this did not work due to a time out.
   $ heroku console
   Ruby console for noladex.heroku.com
   >> User.all.each{|u| u.avatar.reprocess!; u.save!}
   Timed out. Long running requests are not supported on the console.
   Please consider creating a rake task instead.
   
-  So, I added a rake task to noladex.rake and ran "run "heroku rake noladex:reprocess_images" to reprocess images.
-  Then ran"heroku restart"
+  So, I added a rake task to noladex.rake and ran run "heroku rake noladex:reprocess_images" to reprocess images.
+  Then, ran "heroku restart"
   ...................................................
