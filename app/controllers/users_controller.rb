@@ -34,22 +34,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    #@user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]
-
-    if (!params[:mission_statement_1].blank?) then
-      @user.missions.build :category => Category.find(params[:categories_1]), :statement => params[:mission_statement_1]  
-    end    
-    if (!params[:mission_statement_2].blank?) then
-      @user.missions.build :category => Category.find(params[:categories_2]), :statement => params[:mission_statement_2]  
-    end
-    if (!params[:mission_statement_3].blank?) then
-      @user.missions.build :category => Category.find(params[:categories_3]), :statement => params[:mission_statement_3]  
-    end
-
-    if @user.url1.include? '@'
-      @user.url1.sub!('@', '')
-    end
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to(root_url, :notice => 'Thank you for registering at NOLADEX!') }
