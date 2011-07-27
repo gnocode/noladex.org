@@ -32,6 +32,7 @@ var noladex = {
 	bindHovers : function() {
 		$("section#people").delegate(".person", "hover", function() {
 			$("#tagline").val($(this).find(".tag").text());
+			$(this).children('.overlay').fadeToggle(300);
 		});
 	}
 }

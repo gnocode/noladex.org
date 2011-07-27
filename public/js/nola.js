@@ -3,10 +3,9 @@ $(document).ready(function(){
   setupZoom();
 });
 
-$(document).delegate(".person", "hover", function() {
-	
+$(document).delegate(".person", "hover", function() {	
 	$("#tagline").val($(this).find(".tag").text());
-	
+	$(this).children('.overlay').fadeToggle(300);
 });
 
 $("#contact a").click(function() {
