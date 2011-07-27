@@ -1,6 +1,11 @@
 For the next deployment:
+====================
+?
+====================
 
-Joe Ellis - 7-24-2011
+
+====================
+Joe Ellis - 7-24-2011 
 ====================
 run "heroku rake db:migrate" to update to the latest db schema
 
@@ -10,3 +15,17 @@ run "heroku console" and inside run the following code:
 This code is to add width and height meta data to the images already uploaded
 
 run "heroku restart"
+
+  ...................................................
+  (completed 7-27-2011 by tritico)
+  ...................................................
+  Unfortunatly, this did not work due to a time out.
+  $ heroku console
+  Ruby console for noladex.heroku.com
+  >> User.all.each{|u| u.avatar.reprocess!; u.save!}
+  Timed out. Long running requests are not supported on the console.
+  Please consider creating a rake task instead.
+  
+  So, I added a rake task to noladex.rake and ran "run "heroku rake noladex:reprocess_images" to reprocess images.
+  Then ran"heroku restart"
+  ...................................................
