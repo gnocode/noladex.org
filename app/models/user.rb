@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
 
   def format_urls
     self.url1 = url1.gsub(%r{(^https?://twitter.com/(#!/)?|@)}, '') unless url1.blank?
-    self.url2 = "http://#{url2}" if !url2.blank? && !url2.match(%r{^https?://})
-    self.url3 = "http://#{url3}" if !url3.blank? && !url3.match(%r{^https?://})
+    self.url2 = "http://#{url2}" if !url2.blank? && !url2.match(%r{^(https?://|mailto:)})
+    self.url3 = "http://#{url3}" if !url3.blank? && !url3.match(%r{^(https?://|mailto:)})
   end
 end

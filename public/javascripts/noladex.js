@@ -3,6 +3,7 @@ var noladex = {
 		this.bindCategoryChange();
 		this.setupFancyZoom();
 		this.setupWooFoo();
+		this.bindHovers();
 
 		$("#about-us a").click(function() {
 			$("#about-text").slideToggle();	
@@ -30,9 +31,11 @@ var noladex = {
 	},
 
 	bindHovers : function() {
+		
 		$("section#people").delegate(".person", "hover", function() {
-			$("#tagline").val($(this).find(".tag").text());
-			$(this).children('.overlay').fadeToggle(300);
+			var self = this;
+			$("#tagline").val($(self).find(".tag").text());
+			$(self).children('.overlay').fadeToggle(300);
 		});
 	}
 }
