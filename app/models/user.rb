@@ -1,10 +1,13 @@
 class User < ActiveRecord::Base
 
+  cattr_reader :per_page
+  @@per_page = Noladex::Application.config.page_size
+
   acts_as_authentic do |c|
     c.login_field :email 
     c.require_password_confirmation = false
   end
-
+  
   has_many :missions
   has_attached_file :avatar, {
     :styles => { :medium => "300x300#" },
@@ -26,8 +29,16 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :missions, :reject_if => proc {|attributes| attributes['statement'].blank? }
 
-  def self.find_by_category(category_id)
-    includes(:missions => :category).where(["categories.id = ?", category_id])
+  class << self
+
+    def find_by_category(category_id)
+      includes(:missions => :category).where(["categories.id = ?", category_id])
+    end
+
+    def get_page_by_category(category_id, displayed_user_ids)
+      find_by_category(category_id).where("users.id not in #{displayed_user_ids}")
+    end
+
   end
 
   private

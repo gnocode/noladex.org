@@ -3,16 +3,22 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:edit, :update, :destroy]
 
   def index
-    if params[:category]
-      @users = User.find_by_category(params[:category]).shuffle
+    displayed_user_ids = params[:selected].blank? ? "()" : "(#{params[:selected]})"
+    unless params[:category].blank?
+      @users = User.get_page_by_category(params[:category], displayed_user_ids).shuffle.paginate(:page => 1, :per_page => Noladex::Application.config.page_size)
+      @number_of_users = User.find_by_category(params[:category]).size
     else
-      @users = User.includes(:missions => :category).all.shuffle
+      @number_of_users = User.count
+      @users = User.includes(:missions => :category).where("users.id not in #{displayed_user_ids}").shuffle.paginate(:page => 1, :per_page => Noladex::Application.config.page_size)
     end
-
-    respond_to do |format|
-      format.html
-      format.js
-      format.xml  { render :xml => @users }
+    if request.xhr?
+      render :partial => @users and return
+    else
+      respond_to do |format|
+        format.html
+        format.js
+        format.xml  { render :xml => @users }
+      end        
     end
   end
 

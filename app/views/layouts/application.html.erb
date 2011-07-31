@@ -70,7 +70,7 @@
 		    if params[:category]		      
 		      @category = Category.find(params[:category])
 		      @category_name = @category.name if !@category.nil?		      
-		      @count = User.find_by_category(params[:category]).size 
+		      @count = @number_of_users
 		    else
 		      @count = User.all().size
 	      end
@@ -106,7 +106,8 @@
 		</div>
 	</footer>
 
-	<%= javascript_include_tag "jquery.min", "jquery_ujs", "plugins", "noladex.js" %>
+	<%= javascript_include_tag "jquery.min", "jquery_ujs", "plugins", "noladex.js", "jquery.pageless" %>
+	<%= yield :javascript %>
 
 </body>
 </html>
