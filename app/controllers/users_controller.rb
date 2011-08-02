@@ -4,13 +4,7 @@ class UsersController < ApplicationController
 
   def index
     displayed_user_ids = params[:selected].blank? ? [] : params[:selected].split(',')
-    unless params[:category].blank?
-      @users = User.get_page(displayed_user_ids, params[:category])
-      @number_of_users = User.find_by_category(params[:category]).size
-    else
-      @users = User.get_page(displayed_user_ids)
-      @number_of_users = User.count
-    end
+    @number_of_users, @users = User.get_page(displayed_user_ids, params[:category])
     if request.xhr?
       render :partial => @users and return
     else
