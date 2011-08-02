@@ -5,7 +5,8 @@ gem "rack-openid"
 
 gem 'rails', '3.0.9'
 
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'mysql2', '0.2.10'
 gem 'paperclip'
 gem 'paperclip-meta'
 gem 'aws-s3', :require => 'aws/s3'
@@ -30,4 +31,10 @@ group :test do
   gem 'growl'
   gem 'rb-fsevent'
   gem 'shoulda'
+
+  gem 'factory_girl'
+  gem 'factory_girl_rails', '1.1.rc1'
+  gem 'capybara'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end

@@ -11,7 +11,7 @@ categories = []
 	categories << Category.create(:name => name)
 end
 
-9.times do |idx|
+300.times do |idx|
   user = User.new(:password => 'secret', :name => "User #{idx + 1}", :email => "user#{idx}@noladex.org", :avatar => File.open(File.join(Rails.root, 'db', 'fixtures', 'kitten.jpeg')))
   3.times do |mdx|
     user.missions << Mission.new(:statement => 'mission statements ...', :category_id => rand(5) + 1)

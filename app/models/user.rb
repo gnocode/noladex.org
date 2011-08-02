@@ -35,10 +35,15 @@ class User < ActiveRecord::Base
       includes(:missions => :category).where(["categories.id = ?", category_id])
     end
 
-    def get_page_by_category(category_id, displayed_user_ids)
-      find_by_category(category_id).where("users.id not in #{displayed_user_ids}")
+    def get_page(user_ids_displayed, category=nil)
+      candidates = find_by_sql("select id from users").map(&:id) - user_ids_displayed.map!(&:to_i)
+      page = candidates.shuffle[0..8]
+      if category
+        find_by_category(category).where("users.id in (#{page.join(',')})").paginate(:page => 1, :per_page => Noladex::Application.config.page_size)      
+      else
+        includes(:missions => :category).where("users.id in (#{page.join(',')})").paginate(:page => 1, :per_page => Noladex::Application.config.page_size)      
+      end
     end
-
   end
 
   private
