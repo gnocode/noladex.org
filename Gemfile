@@ -30,4 +30,10 @@ group :test do
   gem 'growl'
   gem 'rb-fsevent'
   gem 'shoulda'
+
+  gem 'factory_girl'
+  gem 'factory_girl_rails', '1.1.rc1'
+  gem 'capybara'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end

@@ -31,14 +31,18 @@ class User < ActiveRecord::Base
 
   class << self
 
-    def find_by_category(category_id)
-      includes(:missions => :category).where(["categories.id = ?", category_id])
+    def get_page(user_ids_displayed, category=nil)
+      candidates = 0
+      unless category.blank?
+        candidates = select(:id).includes(:missions => :category).where(["categories.id = ?", category]).map!(&:id)
+      else
+        candidates = select(:id).map(&:id)
+      end
+      length = candidates.length
+      candidates = candidates - user_ids_displayed.map!(&:to_i)
+      page = candidates.shuffle[0..8]
+      return [length, includes(:missions => :category).where("users.id in (#{page.join(',')})").paginate(:page => 1, :per_page => Noladex::Application.config.page_size)]
     end
-
-    def get_page_by_category(category_id, displayed_user_ids)
-      find_by_category(category_id).where("users.id not in #{displayed_user_ids}")
-    end
-
   end
 
   private
