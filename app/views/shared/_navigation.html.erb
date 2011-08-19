@@ -1,7 +1,6 @@
 <ul id="navigation">
   <% unless current_user %>
-    <li><%= link_to "Signin", login_path %></li>
-    <li><%= link_to "Signup", new_user_path %></li>
+   <li><%= link_to "Signin", login_path %></li>
     <li><%= link_to "Forgot your password?", password_index_path %></li>
   <% else %>
     <li><%= link_to "Profile", edit_user_path(current_user) %></li>
