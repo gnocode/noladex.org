@@ -47,40 +47,10 @@
 	<section id="people">
 		<%= yield %>	
 	</section>
-	<footer>
-		<div id="contact">
-			<a>Contact</a>
-			<div id="wufoo">
-				<script>var host = (("https:" == document.location.protocol) ? "https://secure." : "http://");document.write(unescape("%3Cscript src='" + host + "wufoo.com/scripts/embed/form.js' type='text/javascript'%3E%3C/script%3E"));</script>
-
-				<script>
-				var z7x3k7 = new WufooForm();
-				z7x3k7.initialize({
-				'userName':'noladex', 
-				'formHash':'z7x3k7', 
-				'autoResize':true,
-				'height':'455'});
-				z7x3k7.display();
-				</script>
-			</div>					
-		</div>
-			
-		<div id="counted">
-		  <%
-		    if params[:category]		      
-		      @category = Category.find(params[:category])
-		      @category_name = @category.name if !@category.nil?		      
-		      @count = @number_of_users
-		    else
-		      @count = User.all().size
-	      end
-		  %>
-		  <a href="/"><%=@count %> people on NOLAdex <%= @category_name.downcase if !@category_name.nil? %></a>		  		 
-	  </div>
-	    	
+	<footer>			
 		<div id="about-us">
 			<a>About</a>		
-			<div id="about-text">
+			<div id="about-text" class="clear">
 				<h2>We live, we love, we grow New Orleans</h2> <!-- logo here? --></h2>
 				<p>
 					NOLAdex is simply a digital rolodex, a collection of the many talented people of Greater New Orleans.
@@ -102,12 +72,23 @@
 				</p>
 				<a id="facbok" href="http://www.facebook.com/pages/Noladex/123525447737442">NOLAdex on Facebook</a>
 				<a id="twitbox" href="http://twitter.com/noladex">NOLAdex on Twitter</a>
+				<div id="counted">
+				  <%
+				    if params[:category]		      
+				      @category = Category.find(params[:category])
+				      @category_name = @category.name if !@category.nil?		      
+				      @count = User.find_by_category(params[:category]).size 
+				    else
+				      @count = User.all().size
+			      end
+				  %>
+				  <a href="/"><%=@count %> people on NOLAdex <%= @category_name.downcase if !@category_name.nil? %></a>		  		 
+			 	</div>				
 			</div>
 		</div>
 	</footer>
 
-	<%= javascript_include_tag "jquery.min", "jquery_ujs", "plugins", "noladex.js", "jquery.pageless" %>
-	<%= yield :javascript %>
-
+	<%= javascript_include_tag "jquery.min", "jquery_ujs", "plugins", "noladex.js", "jquery.pageless.js" %>
+  <%= yield :javascript %>
 </body>
 </html>
