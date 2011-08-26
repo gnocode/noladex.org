@@ -1,12 +1,12 @@
-- content_for :javascript do
-  :javascript
+<% content_for :javascript do %>
+  <% javascript_tag do %>
     opts = {
-      totalPages    : "#{(@number_of_users % Noladex::Application.config.page_size) > 0 ? (@number_of_users / Noladex::Application.config.page_size) + 1 : (@number_of_users / Noladex::Application.config.page_size)}",
+      totalPages    : <%= @number_of_users % Noladex::Application.config.page_size > 0 ? (@number_of_users / Noladex::Application.config.page_size) + 1 : (@number_of_users / Noladex::Application.config.page_size) %>,
       url           : '/users',
       loaderMsg     : 'Getting more noladexers',
       params        : {
         selected    : $('#selected_noladexers').val(),
-        category    : "#{params[:category]}"
+        category    : "<%= params[:category] %>"
       },
       scrape        : function(data) {
         alreadySelected = $('#selected_noladexers').val().split(',')
@@ -18,8 +18,11 @@
       }
     }
     $('#people').pageless(opts);
+  <% end %>
+<% end %>
 
-= semantic_form_for :selected do |f|
-  = f.hidden_field :noladexers, :value => @users.map {|u| u.id}.join(',')
+<%= semantic_form_for :selected do |f| %>
+  <%= f.hidden_field :noladexers, :value => @users.map {|u| u.id}.join(',') %>
+<% end %>
 
-= render @users
+<%= render @users %>

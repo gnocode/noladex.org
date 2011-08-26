@@ -13,7 +13,6 @@ gem "jquery-rails"
 gem "kaminari"
 gem 'authlogic', :git => 'https://github.com/kreetitech/authlogic.git'
 gem 'formtastic'
-gem 'haml'
 gem 'will_paginate', '~> 3.0.pre4'
 
 # Bundle gems for the local environment. Make sure to
@@ -30,10 +29,4 @@ group :test do
   gem 'growl'
   gem 'rb-fsevent'
   gem 'shoulda'
-
-  gem 'factory_girl'
-  gem 'factory_girl_rails', '1.1.rc1'
-  gem 'capybara'
-  gem 'cucumber-rails'
-  gem 'database_cleaner'
 end
