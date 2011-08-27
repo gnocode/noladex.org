@@ -3,16 +3,16 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:edit, :update, :destroy]
 
   def index
-    if params[:category]
-      @users = User.find_by_category(params[:category]).shuffle
+    displayed_user_ids = params[:selected].blank? ? [] : params[:selected].split(',')
+    @number_of_users, @users = User.get_page(displayed_user_ids, params[:category])
+    if request.xhr?
+      render :partial => @users and return
     else
-      @users = User.includes(:missions => :category).all.shuffle
-    end
-
-    respond_to do |format|
-      format.html
-      format.js
-      format.xml  { render :xml => @users }
+      respond_to do |format|
+        format.html
+        format.js
+        format.xml  { render :xml => @users }
+      end        
     end
   end
 
