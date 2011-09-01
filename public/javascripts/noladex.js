@@ -4,19 +4,40 @@ var noladex = {
 		this.setupFancyZoom();
 		this.setupAbout();
 		this.bindHovers();
-
-		$(".about-link").click(function() {
-			var href = $(this).attr('href');
-			console.log(href);
-			$(href).slideToggle();	
-		});
+		this.bindDisplay('.about-link');
+		this.bindClose('.close-link');
 	},
 	
 	setupAbout : function() {
 		$("#about").hide();
-
+		$(".close-link").hide();
 	},
-
+	
+	bindDisplay : function(target) {
+		var self = this;
+		
+		$(target).click(function() {
+			var href = $(this).attr('href');
+			self.toggleDisplay(href);
+			$('body').css('overflow', 'hidden');		
+		});		
+	},
+	
+	bindClose : function(target) {
+		var self = this;
+		
+		$(target).click(function() {
+			var href = $(this).attr('href');
+			self.toggleDisplay(href);
+			$('body').css('overflow','auto');
+		});
+	},
+	
+	toggleDisplay : function(href) {
+			$(href).slideToggle();
+			$('.close-link').fadeToggle();		
+	},
+	
 	bindCategoryChange : function() {
 		$("select#categories").change(function() {
 			var category = $('#categories option:selected').val();

@@ -97,6 +97,62 @@ ul, li, ol {
 				color: #000;
 			}
 
+#about {
+	position: absolute;
+	z-index: 500;
+	width: 100%;
+	height: 100%;
+	background: url(../images/about_pattern.png) repeat;
+	color: #fff;
+}
+	#about #text {
+		padding: 40px;
+		margin: 0 auto;
+	}
+	
+	#about .close-link {
+		display: block;
+		width: 30px;
+		height: 25px;
+		background: url(../images/corner.png) no-repeat right center;
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		opacity: .7;
+		text-indent: -9999px;
+	}
+	
+	#about .close-link:hover {
+		opacity: 1;
+	}
+
+#counted {
+	text-align: right;
+  width: 100%;
+}
+#about ul {
+	margin: 0 0 15px 25px;
+}
+
+#about a#twitbox, #about a#facbok {
+	border-bottom: none;
+	display: block;
+	text-indent: -9999px;
+	width: 24px;
+	height: 24px;
+	float: left;
+	padding-right: 5px;
+}
+
+#about #twitbox { background: url(../images/icon_twitter.png) no-repeat center center; right: 20px; }
+#about #facbok { background: url(../images/icon_facebook.png) no-repeat center center; right: 48px; }
+
+#about #credits {
+	padding: 5px 0;
+	margin-top: 10px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
 
 
 
@@ -157,7 +213,7 @@ h4 {
 }
 
 #people {
-	padding: 100px 0;
+	padding: 60px 0;
 	text-align: center;
 	line-height: 0.7;
 }
@@ -169,13 +225,14 @@ h4 {
   display: inline-block;
   overflow: hidden;
   background: white;
-  margin: 10px;
+  margin: 5px;
 }
 .person img {
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
+  background: url(../images/klonoladex.jpg) no-repeat center center;
  }
 .person .overlay {
   position: absolute;
@@ -193,11 +250,7 @@ h4 {
 .person .overlay a {
 	color: white;
 }
-/*
-.person:hover .overlay {
-  display: block;
-}
-*/
+
 .tags {
 	position: absolute;
 	bottom: 30px;
@@ -290,45 +343,6 @@ label {
 	margin: 0 0 8px 0;
 }
 
-#counted {
-	text-align: right;
-  width: 100%;
-}
-
-#about {
-	padding: 60px 20px 20px;
-}
-#about ul {
-	margin: 0 0 15px 25px;
-}
-
-#about a {
-	color: #247eca;
-	border-bottom: 1px dotted #247eca;
-}
-#about a:hover {
-	border-bottom-style: solid;
-}
-
-#about a#twitbox, #about a#facbok {
-	border-bottom: none;
-	display: block;
-	text-indent: -9999px;
-	width: 24px;
-	height: 24px;
-	float: left;
-	padding-right: 5px;
-}
-
-#about #twitbox { background: url(../images/icon_twitter.png) no-repeat center center; right: 20px; }
-#about #facbok { background: url(../images/icon_facebook.png) no-repeat center center; right: 48px; }
-
-#about #credits {
-	padding: 5px 0;
-	margin-top: 10px;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-}
 
 @media (max-width:600px) {
 	h3,
