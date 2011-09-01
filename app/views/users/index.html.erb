@@ -3,7 +3,7 @@
     opts = {
       totalPages    : <%= @number_of_users % Noladex::Application.config.page_size > 0 ? (@number_of_users / Noladex::Application.config.page_size) + 1 : (@number_of_users / Noladex::Application.config.page_size) %>,
       url           : '/users',
-      loaderMsg     : 'Getting more noladexers',
+      loaderMsg     : 'Loading more noladexes',
       params        : {
         selected    : $('#selected_noladexers').val(),
         category    : "<%= params[:category] %>"

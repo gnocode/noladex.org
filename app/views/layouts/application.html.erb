@@ -23,26 +23,20 @@
 </head>
 
 <body>
-	<section id="about">
+	<section id="topbar" class="clear">
 		<h1 id="logo">
-				<a href="/">
-					NOLAdex
-				</a>
+			<a href="/" title="home">NOLAdex</a>
 		</h1>
-		<div id="search-and-add">
-			<a href="/users/new" id="add-yourself" class="button">
-				<img src="/images/add_edit.png">
-				Add Yourself
-			</a>
-		</div>
 		<div id="filter">
-			Find people who: 
 			<%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name", params[:category]) %>
-			
-			<!-- <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
-  		<%= render :partial => 'shared/navigation' %>
 		</div>
-
+			
+<!-- TODO add search functionality back <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
+		<ul id="navigation" class="right clear">
+	  		<li><a href="#about" title="About">About</a></li>	
+	  		<%= render :partial => 'shared/navigation' %>
+			<li><a href="/users/new" class="add-button">Add Yourself</a></li>
+		</ul>
 	</section>
 	<section id="people">
 		<%= yield %>	

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   
   has_many :missions
   has_attached_file :avatar, {
-    :styles => { :medium => "300x300#" },
+    :styles => { :medium => "250x250#" },
     :storage => Rails.env.production? ? :s3 : :filesystem,
     :bucket => 'noladex.org', 
     :s3_credentials => {

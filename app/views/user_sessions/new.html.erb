@@ -2,6 +2,7 @@
   <h2>+Sign in</h2>
   <%= f.inputs :email, :password %>
   <%= f.buttons do %>
+  <li><%= link_to "Forgot your password?", password_index_path %></li>
     <%= f.submit "Sign in", :class => 'button' %>
 	<% end %>
 <% end %>
