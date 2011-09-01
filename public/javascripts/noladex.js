@@ -2,20 +2,19 @@ var noladex = {
 	run : function () {
 		this.bindCategoryChange();
 		this.setupFancyZoom();
-		this.setupWooFoo();
+		this.setupAbout();
 		this.bindHovers();
 
-		$("#about-us a").click(function() {
-			$("#about-text").slideToggle();	
+		$(".about-link").click(function() {
+			var href = $(this).attr('href');
+			console.log(href);
+			$(href).slideToggle();	
 		});
 	},
 	
-	setupWooFoo : function() {
-		$("#wufoo, #about-text").hide();
+	setupAbout : function() {
+		$("#about").hide();
 
-		$("#contact a").click(function() {
-			$("#wufoo").slideToggle();	
-		});
 	},
 
 	bindCategoryChange : function() {
@@ -31,7 +30,6 @@ var noladex = {
 	},
 
 	bindHovers : function() {
-		
 		$("section#people").delegate(".person", "hover", function() {
 			var self = this;
 			$("#tagline").val($(self).find(".tag").text());

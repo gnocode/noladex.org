@@ -30,7 +30,6 @@ ul, li, ol {
 	float: left;
 }
 
-
 #topbar {
   position: fixed;
   top: 0;
@@ -158,9 +157,9 @@ h4 {
 }
 
 #people {
-	padding: 130px 0;
+	padding: 100px 0;
 	text-align: center;
-	line-height: 0.7
+	line-height: 0.7;
 }
 
 .person {
@@ -291,54 +290,27 @@ label {
 	margin: 0 0 8px 0;
 }
 
-footer {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: rgba(55,55,55,.5);
-	padding: 10px;
-	height: 15px;
-}
-
-footer a {
-	color: white;
-	cursor: pointer;
-}
-
 #counted {
 	text-align: right;
   width: 100%;
 }
 
-#about-us {
-	position: absolute;
-	right: 10px;
-	top: 10px;
+#about {
+	padding: 60px 20px 20px;
 }
-#about-text {
-  display: none;
-	position: absolute;
-	bottom: 35px;
-	right: 10px;
-	background: white;
-	width: 400px;
-	padding: 20px;
-	color: black;
-}
-#about-text ul {
+#about ul {
 	margin: 0 0 15px 25px;
 }
 
-#about-text a {
+#about a {
 	color: #247eca;
 	border-bottom: 1px dotted #247eca;
 }
-#about-text a:hover {
+#about a:hover {
 	border-bottom-style: solid;
 }
 
-#about-text a#twitbox, #about-text a#facbok {
+#about a#twitbox, #about a#facbok {
 	border-bottom: none;
 	display: block;
 	text-indent: -9999px;
@@ -348,10 +320,10 @@ footer a {
 	padding-right: 5px;
 }
 
-#about-text #twitbox { background: url(../images/icon_twitter.png) no-repeat center center; right: 20px; }
-#about-text #facbok { background: url(../images/icon_facebook.png) no-repeat center center; right: 48px; }
+#about #twitbox { background: url(../images/icon_twitter.png) no-repeat center center; right: 20px; }
+#about #facbok { background: url(../images/icon_facebook.png) no-repeat center center; right: 48px; }
 
-#about-text #credits {
+#about #credits {
 	padding: 5px 0;
 	margin-top: 10px;
 	border-top: 1px solid #ddd;
@@ -359,73 +331,21 @@ footer a {
 }
 
 @media (max-width:600px) {
-
 	h3,
-	#about-us,
-	#logo,
-	#search-and-add,
 	#filter,
 	#filter input[type="search"],
-	#contact,
-	#about-us,
-	#about-text {
+	#about {
 		position: static;
 		display: block;
-	}
-	
-	#search-and-add {
-		padding: 5px 0 20px; 
-	}
-	
-	#logo {
-		margin: 20px auto;
-	}
-	
-	#logo a {
-		margin: 0 auto;
-	}
-	
-	#about {
-		height: auto;
-		padding: 0;
-		text-align: center;
-		padding: 10px 0 0 0;
-	}
-	
-	#search {
-		margin: 10px auto;
-		width: 80%;
-	}
-	
+	}	
 	#filter {
 		text-align: center;
 		padding: 10px 0;
 	}
-	
-	#contact {
-		margin: 0 0 20px 0;
-	}
-	
-	#about-text {
+	#about {
 		width: 100%;
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}
-	
-	#wufoo {
-		position: relative;
-		bottom: auto;
-		width: auto;
-	}
-	
-	footer,
-	#about {
-		position: relative;
-	}
-	footer > div > a {
-		display: block;
-		margin: 0 0 10px 0;
-	}
-		
 }
