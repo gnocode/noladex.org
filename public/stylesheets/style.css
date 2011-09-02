@@ -30,6 +30,10 @@ ul, li, ol {
 	float: left;
 }
 
+body {
+	min-width: 690px;
+}
+
 #topbar {
   position: fixed;
   top: 0;
@@ -40,6 +44,7 @@ ul, li, ol {
   padding: 14px 40px;
   z-index: 1;
   border-bottom: 1px solid #ddd;
+  min-width: 610px;
 }
 	#topbar #logo {
 		width:220px;
@@ -61,7 +66,7 @@ ul, li, ol {
 		zoom: 1;
 		*display: inline;
 		vertical-align: middle;
-		padding: 0 20px;
+		padding: 0 10px 0 20px;
 	}
 		#topbar #filter select {
 			font-size: 18px;
@@ -78,7 +83,6 @@ ul, li, ol {
 	}
 	#topbar #navigation li .add-button:hover { background: url(../images/add_button.png) no-repeat center center; }
 	#topbar #navigation li .add-button:active { background: url(../images/add_button.png) no-repeat center top; }
-
 	#topbar #navigation {
 		position: relative;
 		float: right;
@@ -96,10 +100,9 @@ ul, li, ol {
 				text-decoration: underline;
 				color: #000;
 			}
-
 #about {
 	position: absolute;
-	z-index: 500;
+	z-index: 100;
 	width: 100%;
 	height: 100%;
 	background: url(../images/about_pattern.png) repeat;
@@ -108,8 +111,77 @@ ul, li, ol {
 	#about #text {
 		padding: 40px;
 		margin: 0 auto;
+		text-align: center;
+		width: 540px;
 	}
-	
+		#about #text .logo {
+			background: url(../images/noladex_crescent.png) no-repeat center center;
+			width: 100px;
+			height: 100px;
+			margin: 0 auto 20px;
+			text-indent: -9999px;
+		}
+		#about #text h2 {
+			font-size: 30px;
+			padding: 20px 0;
+		}
+		#about #text p {
+			font-size: 16px;
+			padding: 10px 20px;
+			line-height: 24px;
+		}
+			#about #text p a {
+				color: #aaa;
+			}
+			#about #text p a:hover {
+				text-decoration: underline;
+				color: #ccc;
+			}
+			#about #text #credits {
+				padding: 5px 0;
+				line-height: 24px;
+				margin: 30px 0;
+				border-top: 1px solid #333;
+				border-bottom: 1px solid #333;			
+			}
+			#about #text #credits p {
+				float: left;
+				font-size: 12px;
+				font-style: italic;
+				font-family: "Georgia", serif;	
+				padding: 0;			
+			}
+				#about #text #credits a {
+					padding: 0 5px;
+					font-style: normal;
+					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;									
+				}
+			#about #text #credits p#counted {
+				float: right;
+			}
+				#about #text #credits p#counted a {
+					color: #aaa;
+					font-style: italic;
+					font-family: "Georgia", serif;									
+				}
+				#about #text #credits p#counted a:hover {
+					color: #ccc;
+					text-decoration: underline;
+				}
+			#about #text #credits #twitbox,
+			#about #text #credits #facbok {
+				border-bottom: none;
+				display: block;
+				float: right;
+				text-indent: -9999px;
+				width: 24px;
+				height: 24px;
+				float: right;
+				margin: 5px 0;
+				padding-left: 3px;
+			}
+				#about #text #twitbox {	background: url(../images/icon_twitter.png) no-repeat center center; right: 20px; }
+				#about #text #facbok { 	background: url(../images/icon_facebook.png) no-repeat center center; right: 48px; }
 	#about .close-link {
 		display: block;
 		width: 30px;
@@ -121,42 +193,88 @@ ul, li, ol {
 		opacity: .7;
 		text-indent: -9999px;
 	}
-	
 	#about .close-link:hover {
 		opacity: 1;
 	}
-
-#counted {
-	text-align: right;
-  width: 100%;
+#people {
+	padding: 35px;
+	line-height: 0.7;
 }
-#about ul {
-	margin: 0 0 15px 25px;
-}
-
-#about a#twitbox, #about a#facbok {
-	border-bottom: none;
-	display: block;
-	text-indent: -9999px;
-	width: 24px;
-	height: 24px;
-	float: left;
-	padding-right: 5px;
-}
-
-#about #twitbox { background: url(../images/icon_twitter.png) no-repeat center center; right: 20px; }
-#about #facbok { background: url(../images/icon_facebook.png) no-repeat center center; right: 48px; }
-
-#about #credits {
-	padding: 5px 0;
-	margin-top: 10px;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-}
-
-
-
-
+	#people .person {
+		width: 250px;
+		height: 250px;
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
+		background: white;
+		margin: 5px;
+		text-align: center;
+	}
+		#people .person img {
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: url(../images/klonoladex.jpg) no-repeat center center;
+		}
+		#people .person .overlay {
+			position: absolute;
+			content: "";
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.9);
+			display: none;
+			padding: 0 20px;
+			color: white;
+		}
+		#people .person .overlay a {
+			color: white;
+		}
+		#people .person .overlay .tags {
+			position: absolute;
+			bottom: 30px;
+			left: 15px;
+			right: 15px;
+		}		
+		#people .person .tags a {
+			background: white;
+			color: black;
+			padding: 3px 6px;
+			text-decoration: none;
+			font-size: 12px;
+		}
+		#people .person .overlay .tag {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			padding: 0;
+			font-size: 12px;
+			line-height: 16px;
+		}
+		#people .person .overlay .icons {
+			padding: 10px 0;
+		}		
+			#people .person .overlay .icons a {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				text-indent: -9999px;
+				margin-right: 3px;
+				opacity: .9;		
+			}
+			#people .person .overlay .icons a:hover,
+			#people .person .overlay .icons a:active {
+				opacity: 1;
+			}		
+			.icons .twitter {
+				background: url(../images/twitter_icon.png);
+			}
+			.icons .link {
+				background: url(../images/link_icon.png);
+			}
+			.icons .email {
+				background: url(../images/email_icon.png);
+			}
 
 a {
 	text-decoration: none;
@@ -205,98 +323,9 @@ h4 {
 	margin-top: 30px;
 }
 
-.tag {
-	font-family: Helvetica, Arial, sans-serif;
-	padding: 0;
-	font-size: 12px;
-	line-height: 16px;
-}
-
-#people {
-	padding: 60px 0;
-	text-align: center;
-	line-height: 0.7;
-}
-
-.person {
-  width: 250px;
-  height: 250px;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  background: white;
-  margin: 5px;
-}
-.person img {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: url(../images/klonoladex.jpg) no-repeat center center;
- }
-.person .overlay {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
-  display: none;
-  padding: 10px;
-  color: white;
-}
-
-.person .overlay a {
-	color: white;
-}
-
-.tags {
-	position: absolute;
-	bottom: 30px;
-	left: 15px;
-	right: 15px;
-}
-.person .tags a {
-	background: white;
-	color: black;
-	padding: 3px 6px;
-	text-decoration: none;
-	font-size: 12px;
-}
-
-.icons {
-	padding: 10px 0;
-}
-
-.icons a {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	text-indent: -9999px;
-	margin: 0 2px;
-	opacity: .8;
-}
-.icons a:hover,
-.icons a:active {
-	opacity: 1;
-}
-.icons .twitter {
-	background: url(../images/twitter_icon.png);
-}
-.icons .link {
-	background: url(../images/link_icon.png);
-}
-.icons .email {
-	background: url(../images/email_icon.png);
-}
-
-
 fieldset {
   border: none;
 }
-
-
 
 #error_explanation {
   margin-bottom: 30px;
@@ -343,19 +372,12 @@ label {
 	margin: 0 0 8px 0;
 }
 
-
 @media (max-width:600px) {
 	h3,
-	#filter,
-	#filter input[type="search"],
-	#about {
+	#filter {
 		position: static;
 		display: block;
 	}	
-	#filter {
-		text-align: center;
-		padding: 10px 0;
-	}
 	#about {
 		width: 100%;
 		-moz-box-sizing: border-box;

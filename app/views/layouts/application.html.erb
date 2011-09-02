@@ -41,39 +41,33 @@
 	<div id="about" class="clear">
 		<a class="close-link" href="#about">Close</a>
 		<div id="text">
-			<h2>We live, we love, we grow New Orleans</h2> 
+			<h1 class="logo">NOLAdex</h1>
+			<h2>We live, we love, we grow New Orleans</h2>
 			<p>
-				NOLAdex is simply a digital rolodex, a collection of the many talented people of Greater New Orleans.
+				NOLAdex is simply a digital rolodex – a collection of the many talented people of Greater New Orleans. We inspire one another. We see talent in each other. We connect with each other.
 			</p>
-			<p>
-				Here are some ways we think you'd love to use it:
-			</p>
-			<ul>
-				<li>find people like you to hangout with</li>
-				<li>hire talent</li>
-				<li>connect digitally to others by creating your own profile</li>
-			</ul>
-	
 			<p>
 				This project was created by <a href="images/noladex_team.jpg">the generous volunteers</a> who participated in the second day 'Hack Day' of <a href="http://www.barcampnola.com" target="_blank">BarCampNola4</a> on the weekend of  July 16-17, 2011. This site is further maintained by <a href="http://www.gnocode.com/">gnocode</a>.
 			</p>
-			<p id="credits">
-				Give credit where credit is due: <a href="http://prtlnd.com/" target="_blank">Prtlnd</a> | <a href="http://desmob.com/" target="_blank">Des Mob</a>
-			</p>
-			<a id="facbok" href="http://www.facebook.com/pages/Noladex/123525447737442">NOLAdex on Facebook</a>
-			<a id="twitbox" href="http://twitter.com/noladex">NOLAdex on Twitter</a>
-			<div id="counted">
-			  <%
-			    if params[:category]		      
-			      @category = Category.find(params[:category])
-			      @category_name = @category.name if !@category.nil?		      
-			      @count = User.find_by_category(params[:category]).size 
-			    else
-			      @count = User.all().size
-		      end
-			  %>
-			  <a href="/"><%=@count %> people on NOLAdex <%= @category_name.downcase if !@category_name.nil? %></a>		  		 
-		 	</div>				
+			<div id="credits" class="clear">
+				<p>
+					Due credit: <a href="http://prtlnd.com/" target="_blank">Prtlnd</a> | <a href="http://desmob.com/" target="_blank">Des Mob</a>
+				</p>
+				<a id="facbok" href="http://www.facebook.com/pages/Noladex/123525447737442">NOLAdex on Facebook</a>
+				<a id="twitbox" href="http://twitter.com/noladex">NOLAdex on Twitter</a>		 									
+				<p id="counted">
+				  <%
+				    if params[:category]		      
+				      @category = Category.find(params[:category])
+				      @category_name = @category.name if !@category.nil?		      
+				      @count = User.find_by_category(params[:category]).size 
+				    else
+				      @count = User.all().size
+			      end
+				  %>
+				  <a href="/"><%=@count %> New Orleanians on NOLAdex <%= @category_name.downcase if !@category_name.nil? %></a>		  		 
+			 	</p>
+			</div>
 		</div>
 	</div>
 	

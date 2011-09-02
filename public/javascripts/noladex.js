@@ -34,8 +34,9 @@ var noladex = {
 	},
 	
 	toggleDisplay : function(href) {
-			$(href).slideToggle();
-			$('.close-link').fadeToggle();		
+			$(href).fadeToggle(function(){
+			});
+			$('.close-link').fadeToggle(800);		
 	},
 	
 	bindCategoryChange : function() {
