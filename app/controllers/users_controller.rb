@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(root_url, :notice => 'Thank you for registering at NOLADEX!') }
+        format.html { redirect_to(root_url, :notice => 'Thanks for adding yourself to the NOLAdex!') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         (3-@user.missions.size).times { @user.missions.build }
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       @user = current_user
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(root_url, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(root_url, :notice => 'Your profile was successfully updated.') }
         format.xml  { head :ok }
       else
         p @user.errors

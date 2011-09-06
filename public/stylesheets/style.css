@@ -279,6 +279,19 @@ body {
 			.icons .email {
 				background: url(../images/email_icon.png);
 			}
+			
+#new_user {
+	margin: 60px auto;
+	width: 540px;
+	padding: 30px 40px;
+	border: 1px solid #eee;
+	box-shadow: 		0 0 10px rgba(0,0,0,.1);
+	-webkit-box-shadow:	0 0 10px rgba(0,0,0,.1);
+	-moz-box-shadow:	0 0 10px rgba(0,0,0,.1);
+	border-radius:			3px;
+	-webkit-border-radius:	3px;
+	-moz-border-radius:		3px;
+}
 
 a {
 	text-decoration: none;

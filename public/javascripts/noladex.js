@@ -52,7 +52,7 @@ var noladex = {
 	},
 
 	bindHovers : function() {
-		$("section#people").delegate(".person", "hover", function() {
+		$("#people").delegate(".person", "hover", function() {
 			var self = this;
 			$("#tagline").val($(self).find(".tag").text());
 			$(self).children('.overlay').fadeToggle(300);

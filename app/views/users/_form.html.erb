@@ -1,14 +1,11 @@
 <%= form_for(@user, :html => { :multipart => true } ) do |f| %>
-  <% if params[:action] == 'new' %>
-	  <h2>+Add Yourself</h2>
-  <% else %>
-    <h2>+Edit Yourself</h2>
-  <% end %>
+
+	<h3>Yourself Information</h3>
 
   <% if @user.errors.any? %>
 
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h4>Oops! You missed a few things:</h4>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -21,15 +18,13 @@
   <% end %>
 	
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, :placeholder => 'John Doe' %>
+    <%= f.text_field :name, :placeholder => 'Name' %>
   </div>
   <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email, :placeholder => 'john@doe.com' %>
+    <%= f.text_field :email, :placeholder => 'Email@address.com' %>
   </div>
   
-  <div class="field">
+  <div class="avatar">
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
