@@ -284,14 +284,89 @@ body {
 	margin: 60px auto;
 	width: 540px;
 	padding: 30px 40px;
-	border: 1px solid #eee;
+	border: 1px solid #ddd;
 	box-shadow: 		0 0 10px rgba(0,0,0,.1);
 	-webkit-box-shadow:	0 0 10px rgba(0,0,0,.1);
 	-moz-box-shadow:	0 0 10px rgba(0,0,0,.1);
 	border-radius:			3px;
 	-webkit-border-radius:	3px;
 	-moz-border-radius:		3px;
-}
+	color: #777;
+}	
+	#new_user .field {
+		padding: 8px 0;
+	}
+		#new_user .field input {
+			border-radius:			3px;
+			-webkit-border-radius:	3px;
+			-moz-border-radius:		3px;
+			border: 1px solid #ccc;
+			box-shadow: 		inset 0 1px 3px rgba(0,0,0,.12);
+			-webkit-box-shadow:	inset 0 1px 3px rgba(0,0,0,.12);
+			-moz-box-shadow:	inset 0 1px 3px rgba(0,0,0,.12);
+			font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+			font-size: 12px;
+			color: #abafb2;
+			padding: 8px 5px;
+		}
+		#new_user .field input:focus {
+			color: #666;
+		}
+		#new_user .field label {
+			padding: 0 5px;
+		}
+		#new_user .right .field input {
+			width: 234px;
+		}
+	#new_user .social .field, #new_user .right {
+		text-align: right;
+	}
+		#new_user .social .field input {
+			width: 184px;
+		}
+			#new_user .social .field label.twitter {
+				background: url(../images/twitter_bird.png) no-repeat left center;
+				padding-left: 30px;
+			}
+	#new_user .avatar label {
+		width: 250px;
+		height: 250px;
+		background: #eff3f7;
+		border: 2px dashed #d2e1ec;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		text-align: center;
+		display: block;
+		color: #738695;
+		font-size: 12px;
+		line-height: 250px;
+		margin-right: 15px;
+		margin-bottom: 10px;
+	}
+	#new_user .avatar label:hover {
+		color: #4b5761;
+		background: #ebeff2;
+	}
+	#new_user .avatar, #new_user .right {
+		width: 50%;
+	}
+	#new_user .missions {
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+		width: 100%;
+		margin: 30px 0;
+		padding: 20px 0;
+	}
+		#new_user .missions .field {
+			text-align: center;
+		}
+		#new_user .missions .field input {
+			width: 324px;
+			font-style: italic;
+			margin: 0 5px;
+		}
+
 
 a {
 	text-decoration: none;
@@ -322,17 +397,10 @@ h2 {
 	font-family: Georgia, serif;
 }
 h3 {
-	background: rgba(255, 0, 0, 0.8);
-	color: white;
-	padding: 3px 6px;
-	text-indent: 10px;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	font-size: 11px;
-	position: absolute;
-	width: 250px;
-	top: 0;
-	left: 0;
+	font-family: "Droid Sans", sans-serif;
+	color: #222;
+	font-size: 14px;
+	padding: 10px 0;
 }
 h4 {
 	font-weight: 300;
@@ -353,40 +421,13 @@ fieldset {
   margin: 12px;
   color: #bd2c00;
 }
-fieldset {
-  border: none;
-}
-
-form {
-	text-align: left;
-	color: white;
-	padding: 20px;
-}
 form h2 {
 	margin: 0 0 25px 0;
-	color: #ffdc88;
-}
-
-form input[type=text], form input[type=password] {
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	font-weight: 300;
-	font-size: 16px;
-	padding: 5px;
+	color: #333;
 }
 
 fieldset ol {
   list-style: none;
-}
-
-form .field, fieldset li {
-	margin: 0 0 20px 0;
-	border-left: 5px solid #ffdc88;
-	padding: 0 0 0 15px;
-}
-
-label {
-	display: block;
-	margin: 0 0 8px 0;
 }
 
 @media (max-width:600px) {
