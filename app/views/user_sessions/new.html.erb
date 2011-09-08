@@ -1,8 +1,17 @@
 <%= semantic_form_for @user_session, :url => "/user_session/" do |f| %>
-  <h2>+Sign in</h2>
-  <%= f.inputs :email, :password %>
-  <%= f.buttons do %>
-  <li><%= link_to "Forgot your password?", password_index_path %></li>
-    <%= f.submit "Sign in", :class => 'button' %>
-	<% end %>
+	<div id="sign-in" class="clear">
+	  <h2>Sign in</h2>
+	  <div class="field">
+	    <%= f.label :email, 'Email' %>		  
+	    <%= f.text_field :email, :tabindex => '1' %>
+	  </div>
+	  <div class="field clear">
+	    <%= f.label :password, 'Password' %>		  
+	    <span class="right"><%= link_to "Forgot your password?", password_index_path %></span>
+	    <%= f.password_field :password, :tabindex => '2' %>
+	  </div>	  
+	  <div class="actions right">
+	    <input id="user_submit" tabindex="3" name="commit" type="submit" value="Sign in" class="button">
+	  </div>	
+	</div>
 <% end %>

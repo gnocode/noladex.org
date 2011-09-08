@@ -201,6 +201,7 @@ body {
 		opacity: 1;
 	}
 #people {
+	margin-top: 30px;
 	padding: 35px;
 	line-height: 0.7;
 }
@@ -279,10 +280,58 @@ body {
 			.icons .email {
 				background: url(../images/email_icon.png);
 			}
-			
-#new_user {
-	margin: 60px auto;
-	width: 540px;
+
+#sign-in {
+	width: 300px;
+}
+	#sign-in .field label {
+		width: 50px;
+		padding-right: 5px;
+		font-family: "Droid Sans", sans-serif;
+	}
+	#sign-in .field input {
+		width: 96%;
+		color: #333;
+	}		
+	#sign-in .field span {
+		padding: 4px 0;
+	}
+	#sign-in .field span a {
+		font-size: 11px;
+		font-family: "Droid Sans", sans-serif;
+		color: #bbb;
+	}	
+	#sign-in .field span a:hover {
+		color: #aaa;
+		text-decoration: underline;
+	}
+	#sign-in .actions .button {
+		padding: 6px 14px;
+		background: #ddd;
+		box-shadow: 		inset 0 1px 1px rgba(255,255,255,.8);
+		-webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,.8);
+		-moz-box-shadow: 	inset 0 1px 1px rgba(255,255,255,.8);
+		border: 1px solid #bbb;
+		color: #555;
+		font-size: 14px;
+	}
+	#sign-in .actions .button:hover {
+		color: #333;
+		background: #d5d5d5;
+		border-color: #aaa;
+	}
+	#sign-in .actions .button:active {
+		border-color: #999;
+		background: #d1d1d1;		
+		box-shadow: 		inset 0px 1px 3px rgba(0,0,0,.18);
+		-webkit-box-shadow:	inset 0px 1px 3px rgba(0,0,0,.18);
+		-moz-box-shadow:	inset 0px 1px 3px rgba(0,0,0,.18);
+	}	
+	#sign-in .actions {
+		margin-top: 20px;
+	}
+#new_user, #sign-in {
+	margin: 20px auto;
 	padding: 30px 40px;
 	border: 1px solid #ddd;
 	box-shadow: 		0 0 10px rgba(0,0,0,.1);
@@ -292,11 +341,17 @@ body {
 	-webkit-border-radius:	3px;
 	-moz-border-radius:		3px;
 	color: #777;
+}
+#new_user {
+	width: 540px;
 }	
-	#new_user .field {
-		padding: 8px 0;
+	#new_user h3 {
+		padding-bottom: 20px;
 	}
-		#new_user .field input {
+	#new_user .field, #sign-in .field {
+		padding: 0 0 16px 0;
+	}
+		#new_user .field input, #sign-in input {
 			border-radius:			3px;
 			-webkit-border-radius:	3px;
 			-moz-border-radius:		3px;
@@ -312,25 +367,32 @@ body {
 		#new_user .field input:focus {
 			color: #666;
 		}
-		#new_user .field label {
-			padding: 0 5px;
+		#new_user .right .field label, #sign-in .field label {
+			line-height: 20px;
+			font-family: "Droid Sans", sans-serif;		
 		}
 		#new_user .right .field input {
-			width: 234px;
+			width: 255px;
 		}
 	#new_user .social .field, #new_user .right {
-		text-align: right;
+		text-align: left;
 	}
 		#new_user .social .field input {
-			width: 184px;
+			width: 205px;
+		}
+		#new_user .social {
+			padding-top: 20px;
+		}
+		#new_user .social .field label {
+			padding: 0 5px;
 		}
 			#new_user .social .field label.twitter {
 				background: url(../images/twitter_bird.png) no-repeat left center;
 				padding-left: 30px;
 			}
 	#new_user .avatar label {
-		width: 250px;
-		height: 250px;
+		width: 200px;
+		height: 200px;
 		background: #eff3f7;
 		border: 2px dashed #d2e1ec;
 		border-radius: 5px;
@@ -340,7 +402,7 @@ body {
 		display: block;
 		color: #738695;
 		font-size: 12px;
-		line-height: 250px;
+		line-height: 200px;
 		margin-right: 15px;
 		margin-bottom: 10px;
 	}
@@ -348,8 +410,14 @@ body {
 		color: #4b5761;
 		background: #ebeff2;
 	}
-	#new_user .avatar, #new_user .right {
+	#new_user .avatar, #new_user .personal, #new_user .social {
 		width: 50%;
+	}
+	#new_user .avatar p {
+		font-size: 11px;
+		color: #aaa;
+		font-family: "Droid Sans", sans-serif;
+		padding: 5px 0;
 	}
 	#new_user .missions {
 		border-top: 1px solid #ddd;
@@ -366,6 +434,36 @@ body {
 			font-style: italic;
 			margin: 0 5px;
 		}
+	#new_user .actions {
+		text-align: right;
+		position: relative;
+	}
+	#new_user .actions a {
+		display: inline-block;
+		*display: inline;
+		zoom: 1;
+		vertical-align: middle;
+		padding: 0 20px;
+		color: #aaa;
+		font-size: 12px;
+		font-family: "Droid Sans", sans-serif;		
+	}
+	#new_user .actions a:hover { color: #777; text-decoration: underline; }
+	#new_user .actions .add-button {
+		text-indent: -9999px;
+		background: url(../images/add_button.png) no-repeat center bottom;
+		display: inline-block;
+		zoom: 1;
+		*display: inline;
+		vertical-align: middle;
+		height: 26px;
+		width: 127px;
+		padding: 0 0 0 10px;
+		border: 0px solid transparent;
+		
+	}
+	#new_user .actions .add-button:hover { background: url(../images/add_button.png) no-repeat center center; }
+	#new_user .actions .add-button:active { background: url(../images/add_button.png) no-repeat center top; }
 
 
 a {

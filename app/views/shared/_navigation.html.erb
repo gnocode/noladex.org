@@ -1,6 +1,7 @@
 <% unless current_user %>
 <li><%= link_to "Sign in", login_path %></li>
+<li><a href="/users/new" class="add-button">Add Yourself</a></li>
 <% else %>
-<li><%= link_to "Profile", edit_user_path(current_user) %></li>
+<li><%= link_to "My Profile", edit_user_path(current_user) %></li>
 <li><%= link_to "Sign out", logout_path %></li>
 <% end %>

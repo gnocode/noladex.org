@@ -12,14 +12,17 @@
 		</div>
   <% end %>
 	<div class="clear">
-		<div class="right">
+		<div class="personal right">
 		  <div class="field">
-		    <%= f.text_field :name, :placeholder => 'Name' %>
+		    <%= f.label :name, 'Name' %>		  
+		    <%= f.text_field :name, :placeholder => 'John Smith' %>
 		  </div>
 		  <div class="field">
+		    <%= f.label :email, 'Email' %>		  
 		    <%= f.text_field :email, :placeholder => 'email@address.com' %>
 		  </div>
 		  <div class="field">
+		    <%= f.label :password, 'Password' %>		  
 		    <%= f.password_field :password, :placeholder => 'enter a password' %>
 		  </div>	  
 		</div>  
@@ -27,6 +30,7 @@
 	  <div class="avatar left">
 	    <%= f.label :avatar, 'Upload Photo' %>
 	    <%= f.file_field :avatar %>
+	    <p>Maximum size of 700k. JPG, GIF, PNG.</p>
 	  </div>
 	
 	  <!-- <div class="field">
@@ -58,8 +62,9 @@
 	  <% end %>
 		</div>
 		
-	  <div class="actions">
-	    <input id="user_submit" name="commit" type="submit" value="Submit" class="button">
+	  <div class="actions right">
+	  	<a href="/">Cancel</a>
+	    <input id="user_submit" name="commit" type="submit" value="Submit" class="add-button">
 	  </div>
 	</div>
 <% end %>
