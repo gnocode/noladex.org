@@ -220,7 +220,6 @@ body {
 			position: absolute;
 			top: 0;
 			left: 0;
-			background: url(../images/klonoladex.jpg) no-repeat center center;
 		}
 		#people .person .overlay {
 			position: absolute;
@@ -330,7 +329,7 @@ body {
 	#sign-in .actions {
 		margin-top: 20px;
 	}
-#new_user, #sign-in {
+.centered, #sign-in {
 	margin: 20px auto;
 	padding: 30px 40px;
 	border: 1px solid #ddd;
@@ -342,16 +341,16 @@ body {
 	-moz-border-radius:		3px;
 	color: #777;
 }
-#new_user {
+.centered {
 	width: 540px;
 }	
-	#new_user h3 {
+	.centered h3 {
 		padding-bottom: 20px;
 	}
-	#new_user .field, #sign-in .field {
+	.centered .field, #sign-in .field {
 		padding: 0 0 16px 0;
 	}
-		#new_user .field input, #sign-in input {
+		.centered .field input, #sign-in input {
 			border-radius:			3px;
 			-webkit-border-radius:	3px;
 			-moz-border-radius:		3px;
@@ -364,33 +363,33 @@ body {
 			color: #abafb2;
 			padding: 8px 5px;
 		}
-		#new_user .field input:focus {
+		.centered .field input:focus {
 			color: #666;
 		}
-		#new_user .right .field label, #sign-in .field label {
+		.centered .right .field label, #sign-in .field label {
 			line-height: 20px;
 			font-family: "Droid Sans", sans-serif;		
 		}
-		#new_user .right .field input {
+		.centered .right .field input {
 			width: 255px;
 		}
-	#new_user .social .field, #new_user .right {
+	.centered .social .field, .centered .right {
 		text-align: left;
 	}
-		#new_user .social .field input {
+		.centered .social .field input {
 			width: 205px;
 		}
-		#new_user .social {
+		.centered .social {
 			padding-top: 20px;
 		}
-		#new_user .social .field label {
+		.centered .social .field label {
 			padding: 0 5px;
 		}
-			#new_user .social .field label.twitter {
+			.centered .social .field label.twitter {
 				background: url(../images/twitter_bird.png) no-repeat left center;
 				padding-left: 30px;
 			}
-	#new_user .avatar label {
+	.centered .avatar label {
 		width: 200px;
 		height: 200px;
 		background: #eff3f7;
@@ -406,39 +405,39 @@ body {
 		margin-right: 15px;
 		margin-bottom: 10px;
 	}
-	#new_user .avatar label:hover {
+	.centered .avatar label:hover {
 		color: #4b5761;
 		background: #ebeff2;
 	}
-	#new_user .avatar, #new_user .personal, #new_user .social {
+	.centered .avatar, .centered .personal, .centered .social {
 		width: 50%;
 	}
-	#new_user .avatar p {
+	.centered .avatar p {
 		font-size: 11px;
 		color: #aaa;
 		font-family: "Droid Sans", sans-serif;
 		padding: 5px 0;
 	}
-	#new_user .missions {
+	.centered .missions {
 		border-top: 1px solid #ddd;
 		border-bottom: 1px solid #ddd;
 		width: 100%;
 		margin: 30px 0;
 		padding: 20px 0;
 	}
-		#new_user .missions .field {
+		.centered .missions .field {
 			text-align: center;
 		}
-		#new_user .missions .field input {
+		.centered .missions .field input {
 			width: 324px;
 			font-style: italic;
 			margin: 0 5px;
 		}
-	#new_user .actions {
+	.centered .actions {
 		text-align: right;
 		position: relative;
 	}
-	#new_user .actions a {
+	.centered .actions a {
 		display: inline-block;
 		*display: inline;
 		zoom: 1;
@@ -448,8 +447,8 @@ body {
 		font-size: 12px;
 		font-family: "Droid Sans", sans-serif;		
 	}
-	#new_user .actions a:hover { color: #777; text-decoration: underline; }
-	#new_user .actions .add-button {
+	.centered .actions a:hover { color: #777; text-decoration: underline; }
+	.centered .actions .add-button {
 		text-indent: -9999px;
 		background: url(../images/add_button.png) no-repeat center bottom;
 		display: inline-block;
@@ -462,8 +461,8 @@ body {
 		border: 0px solid transparent;
 		
 	}
-	#new_user .actions .add-button:hover { background: url(../images/add_button.png) no-repeat center center; }
-	#new_user .actions .add-button:active { background: url(../images/add_button.png) no-repeat center top; }
+	.centered .actions .add-button:hover { background: url(../images/add_button.png) no-repeat center center; }
+	.centered .actions .add-button:active { background: url(../images/add_button.png) no-repeat center top; }
 
 
 a {
