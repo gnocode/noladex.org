@@ -33,7 +33,12 @@ ul, li, ol {
 body {
 	min-width: 690px;
 }
-
+.centered, #sign-in {
+	background: #fff;
+}
+body {
+  background: url(../images/bg_pattern.png) repeat;
+}
 #topbar {
   position: fixed;
   top: 0;
@@ -201,9 +206,11 @@ body {
 		opacity: 1;
 	}
 #people {
-	margin-top: 30px;
-	padding: 35px;
+	margin-top: 80px;
 	line-height: 0.7;
+}
+#people #main {
+	padding: 0 35px;
 }
 	#people .person {
 		width: 250px;
