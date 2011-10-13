@@ -28,7 +28,11 @@
 		</div>  
 		
 	  <div class="avatar left">
-	    <%= f.label :avatar, 'Upload Photo' %>
+	  	<% if @user.avatar.url and @user.created_at %>
+		    <%= f.label :avatar, 'Upload Photo', :style => 'background: url('+@user.avatar.url+'); text-indent: -9999px;' %>
+		<% else %>
+			<%= f.label :avatar, 'Upload Photo' %>
+		<% end %>
 	    <%= f.file_field :avatar %>
 	    <p>Maximum size of 700k. JPG, GIF, PNG.</p>
 	  </div>

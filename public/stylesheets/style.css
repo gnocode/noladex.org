@@ -206,7 +206,8 @@ body {
 		opacity: 1;
 	}
 #people {
-	margin-top: 80px;
+	margin-top: 40px;
+	padding: 35px;
 	line-height: 0.7;
 }
 #people #main {

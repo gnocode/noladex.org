@@ -45,6 +45,6 @@ module Noladex
     
     config.mailer_host = "http://localhost:3000"
     
-    config.page_size = 9
+    config.page_size = 8
   end
 end

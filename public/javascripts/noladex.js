@@ -6,6 +6,13 @@ var noladex = {
 		this.bindHovers();
 		this.bindDisplay('.about-link');
 		this.bindClose('.close-link');
+		this.picturePreview();
+	},
+	
+	picturePreview : function() {
+		$("#user_avatar").change(function() {
+			// $(this).siblings('label').css('background-image', );
+		});
 	},
 	
 	setupAbout : function() {
@@ -47,7 +54,6 @@ var noladex = {
 	},
 
 	setupFancyZoom : function() {
-		// Function	that loads FancyZoom on page load
 		window.onLoad = setupZoom();
 	},
 
@@ -55,7 +61,7 @@ var noladex = {
 		$("#people").delegate(".person", "hover", function() {
 			var self = this;
 			$("#tagline").val($(self).find(".tag").text());
-			$(self).children('.overlay').fadeToggle(250);
+			$(self).find('.overlay').fadeToggle(200);
 		});
 	}
 }
