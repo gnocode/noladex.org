@@ -2,22 +2,50 @@ var noladex = {
 	run : function () {
 		this.bindCategoryChange();
 		this.setupFancyZoom();
-		this.setupWooFoo();
+		this.setupAbout();
 		this.bindHovers();
-
-		$("#about-us a").click(function() {
-			$("#about-text").slideToggle();	
+		this.bindDisplay('.about-link');
+		this.bindClose('.close-link');
+		this.picturePreview();
+	},
+	
+	picturePreview : function() {
+		$("#user_avatar").change(function() {
+			// $(this).siblings('label').css('background-image', );
 		});
 	},
 	
-	setupWooFoo : function() {
-		$("#wufoo, #about-text").hide();
-
-		$("#contact a").click(function() {
-			$("#wufoo").slideToggle();	
+	setupAbout : function() {
+		$("#about").hide();
+		$(".close-link").hide();
+	},
+	
+	bindDisplay : function(target) {
+		var self = this;
+		
+		$(target).click(function() {
+			var href = $(this).attr('href');
+			self.toggleDisplay(href);
+			$('body').css('overflow', 'hidden');		
+		});		
+	},
+	
+	bindClose : function(target) {
+		var self = this;
+		
+		$(target).click(function() {
+			var href = $(this).attr('href');
+			self.toggleDisplay(href);
+			$('body').css('overflow','auto');
 		});
 	},
-
+	
+	toggleDisplay : function(href) {
+			$(href).fadeToggle(function(){
+			});
+			$('.close-link').fadeToggle(800);		
+	},
+	
 	bindCategoryChange : function() {
 		$("select#categories").change(function() {
 			var category = $('#categories option:selected').val();
@@ -26,16 +54,14 @@ var noladex = {
 	},
 
 	setupFancyZoom : function() {
-		// Function	that loads FancyZoom on page load
 		window.onLoad = setupZoom();
 	},
 
 	bindHovers : function() {
-		
-		$("section#people").delegate(".person", "hover", function() {
+		$("#people").delegate(".person", "hover", function() {
 			var self = this;
 			$("#tagline").val($(self).find(".tag").text());
-			$(self).children('.overlay').fadeToggle(300);
+			$(self).find('.overlay').fadeToggle(200);
 		});
 	}
 }

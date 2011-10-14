@@ -1,72 +1,78 @@
 <%= form_for(@user, :html => { :multipart => true } ) do |f| %>
-  <% if params[:action] == 'new' %>
-	  <h2>+Add Yourself</h2>
-  <% else %>
-    <h2>+Edit Yourself</h2>
-  <% end %>
 
+	<h3>Your Information</h3>
   <% if @user.errors.any? %>
-
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
+      <h4>Oops! You missed a few things:</h4>
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
-      
-
-</div>
+		</div>
   <% end %>
+	<div class="clear">
+		<div class="personal right">
+		  <div class="field">
+		    <%= f.label :name, 'Name' %>		  
+		    <%= f.text_field :name, :placeholder => 'John Smith' %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :email, 'Email' %>		  
+		    <%= f.text_field :email, :placeholder => 'email@address.com' %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :password, 'Password' %>		  
+		    <%= f.password_field :password, :placeholder => 'enter a password' %>
+		  </div>	  
+		</div>  
+		
+	  <div class="avatar left">
+	  	<% if @user.avatar.url and @user.created_at %>
+		    <%= f.label :avatar, 'Upload Photo', :class => 'true', :style => 'background-image: url('+@user.avatar.url+');' %>
+		<% else %>
+			<%= f.label :avatar, 'Upload Photo', :class => 'false' %>
+		<% end %>
+	    <%= f.file_field :avatar %>
+	    <p>Maximum size of 700k. JPG, GIF, PNG.</p>
+	  </div>
 	
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, :placeholder => 'John Doe' %>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email, :placeholder => 'john@doe.com' %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-
-  <!-- <div class="field">
-      <%= f.label :admin %>
-      <%= f.check_box :admin %>
-    </div> -->
-
-  <div class="field">
-    <%= f.label :url1, 'Twitter' %>
-    <%= f.text_field :url1, :placeholder => "@johndoe" %>
-  </div>  
-  <div class="field">
-    <%= f.label :url2, 'URL' %>
-    <%= f.text_field :url2, :placeholder => "http://johndoe.com" %>
-  </div>      
-  <div class="field">
-    <%= f.label :url3, 'URL' %>
-    <%= f.text_field :url3, :placeholder => "http://johndoe.com" %>
-  </div>
-
-  <%= f.fields_for :missions do |m| %>
-    <div class="field">
-      I&nbsp;
-      <%= m.select :category_id, Category.all.map {|x| [x.name, x.id]} %>
-      <%= m.text_field :statement %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <input id="user_submit" name="commit" type="submit" value="Submit" class="button">
-  </div>
-
+	  <!-- <div class="field">
+	      <%= f.label :admin %>
+	      <%= f.check_box :admin %>
+	    </div> -->
+		<div class="social right">
+		  <div class="field">
+		    <%= f.label :url1, '@', :class => 'twitter' %>
+		    <%= f.text_field :url1, :placeholder => "twitter username" %>
+		  </div>  
+		  <div class="field">
+		    <%= f.label :url2, 'http://' %>
+		    <%= f.text_field :url2, :placeholder => "your website" %>
+		  </div>      
+		  <div class="field">
+		    <%= f.label :url3, 'http://' %>
+		    <%= f.text_field :url3, :placeholder => "your other website" %>
+		  </div>
+	  </div>
+		<div class="missions left">
+				<h3>Your Missions</h3>
+	  <%= f.fields_for :missions do |m| %>
+	    <div class="field">
+	      I&nbsp;
+	      <%= m.select :category_id, Category.all.map {|x| [x.name, x.id]} %>
+	      <%= m.text_field :statement, :placeholder => "what do you do? what’s your passion or talent?" %>
+	    </div>
+	  <% end %>
+		</div>
+		
+	  <div class="actions right">
+	  	<a href="/">Cancel</a>
+	  	<% if @user.created_at %>
+		    <input id="user_submit" name="commit" type="submit" value="Update" class="edit-button">
+		<% else %>
+		    <input id="user_submit" name="commit" type="submit" value="Add Yourself" class="add-button">
+		<% end %>
+	  </div>
+	</div>
 <% end %>

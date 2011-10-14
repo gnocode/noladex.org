@@ -23,56 +23,40 @@
 </head>
 
 <body>
-	<section id="about">
+	<section id="topbar" class="clear">
 		<h1 id="logo">
-				<a href="/">
-					NOLAdex
-				</a>
+			<a href="/" title="home">NOLAdex</a>
 		</h1>
-		<div id="search-and-add">
-			<a href="/users/new" id="add-yourself" class="button">
-				<img src="/images/add_edit.png">
-				Add Yourself
-			</a>
-		</div>
 		<div id="filter">
-			Find people who: 
 			<%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name", params[:category]) %>
-			
-			<!-- <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
-  		<%= render :partial => 'shared/navigation' %>
 		</div>
-
+			
+<!-- TODO add search functionality back <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
+		<ul id="navigation" class="right clear">
+	  		<li><a class="about-link" href="#about" title="About">About</a></li>	
+	  		<%= render :partial => 'shared/navigation' %>
+		</ul>
 	</section>
-	<section id="people">
-		<%= yield %>	
-	</section>
-	<footer>			
-		<div id="about-us">
-			<a>About</a>		
-			<div id="about-text" class="clear">
-				<h2>We live, we love, we grow New Orleans</h2> <!-- logo here? --></h2>
+	<div id="about" class="clear">
+		<a class="close-link" href="#about">Close</a>
+		<div id="text">
+			<h1 class="logo">NOLAdex</h1>
+			<h2>We live, we love, we grow New Orleans</h2>
+			<div class="square">
 				<p>
-					NOLAdex is simply a digital rolodex, a collection of the many talented people of Greater New Orleans.
+					NOLAdex is simply a digital rolodex – a collection of the many talented people of Greater New Orleans. We inspire one another. We see talent in each other. We connect with each other.
 				</p>
-				<p>
-					Here are some ways we think you'd love to use it:
-				</p>
-				<ul>
-					<li>find people like you to hangout with</li>
-					<li>hire talent</li>
-					<li>connect digitally to others by creating your own profile</li>
-				</ul>
-
 				<p>
 					This project was created by <a href="images/noladex_team.jpg">the generous volunteers</a> who participated in the second day 'Hack Day' of <a href="http://www.barcampnola.com" target="_blank">BarCampNola4</a> on the weekend of  July 16-17, 2011. This site is further maintained by <a href="http://www.gnocode.com/">gnocode</a>.
 				</p>
-				<p id="credits">
-					Give credit where credit is due: <a href="http://prtlnd.com/" target="_blank">Prtlnd</a> | <a href="http://desmob.com/" target="_blank">Des Mob</a>
+			</div>
+			<div id="credits" class="clear">
+				<p>
+					Due credit: <a href="http://prtlnd.com/" target="_blank">Prtlnd</a> | <a href="http://desmob.com/" target="_blank">Des Mob</a>
 				</p>
 				<a id="facbok" href="http://www.facebook.com/pages/Noladex/123525447737442">NOLAdex on Facebook</a>
-				<a id="twitbox" href="http://twitter.com/noladex">NOLAdex on Twitter</a>
-				<div id="counted">
+				<a id="twitbox" href="http://twitter.com/noladex">NOLAdex on Twitter</a>		 									
+				<p id="counted">
 				  <%
 				    if params[:category]		      
 				      @category = Category.find(params[:category])
@@ -82,13 +66,16 @@
 				      @count = User.all().size
 			      end
 				  %>
-				  <a href="/"><%=@count %> people on NOLAdex <%= @category_name.downcase if !@category_name.nil? %></a>		  		 
-			 	</div>				
+				  <a href="/"><%=@count %> New Orleanians on NOLAdex <%= @category_name.downcase if !@category_name.nil? %></a>		  		 
+			 	</p>
 			</div>
 		</div>
-	</footer>
+	</div>	
+	<section id="people">
+		<%= yield %>	
+	</section>
 
-	<%= javascript_include_tag "jquery.min", "jquery_ujs", "plugins", "noladex.js" %>
-
+	<%= javascript_include_tag "jquery.min", "jquery_ujs", "plugins", "noladex.js", "jquery.pageless.js" %>
+  <%= yield :javascript %>
 </body>
 </html>

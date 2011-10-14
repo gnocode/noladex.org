@@ -3,17 +3,23 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:edit, :update, :destroy]
 
   def index
-    if params[:category]
-      @users = User.find_by_category(params[:category]).shuffle
-    else
-      @users = User.includes(:missions => :category).all.shuffle
-    end
-
-    respond_to do |format|
-      format.html
-      format.js
-      format.xml  { render :xml => @users }
-    end
+  	if params[:category]
+  		@users = User.find_by_category(params[:category]).shuffle
+  	else
+  		@users = User.includes(:missions => :category).all.shuffle
+  	end
+  	
+   # displayed_user_ids = params[:selected].blank? ? [] : params[:selected].split(',')
+   # @number_of_users, @users = User.get_page(displayed_user_ids, params[:category])
+   # if request.xhr?
+   #   render :partial => @users and return
+   # else
+      respond_to do |format|
+        format.html
+        format.js
+        format.xml  { render :xml => @users }
+      end        
+   # end
   end
 
   def new
@@ -36,7 +42,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(root_url, :notice => 'Thank you for registering at NOLADEX!') }
+        format.html { redirect_to(root_url, :notice => 'Thanks for adding yourself to the NOLAdex!') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         (3-@user.missions.size).times { @user.missions.build }
@@ -51,7 +57,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       @user = current_user
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(root_url, :notice => 'User was successfully updated.') }
+        format.html { redirect_to(root_url, :notice => 'Your profile was successfully updated.') }
         format.xml  { head :ok }
       else
         p @user.errors
