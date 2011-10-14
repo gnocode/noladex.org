@@ -133,9 +133,9 @@ body {
 		#about #text .square {
 			text-align: left;
 			border: 1px solid #000;
-			box-shadow:			0px 1px 1px rgba(255,255,255,.1);
-			-webkit-box-shadow:	0px 1px 1px rgba(255,255,255,.1);
-			-moz-box-shadow:	0px 1px 1px rgba(255,255,255,.1);
+			box-shadow:			0px 0px 1px rgba(255,255,255,.1);
+			-webkit-box-shadow:	0px 0px 1px rgba(255,255,255,.1);
+			-moz-box-shadow:	0px 0px 1px rgba(255,255,255,.1);
 		}
 		#about #text p {
 			font-size: 16px;
@@ -397,25 +397,30 @@ body {
 				background: url(../images/twitter_bird.png) no-repeat left center;
 				padding-left: 30px;
 			}
+	
 	.centered .avatar label {
 		width: 200px;
-		height: 200px;
-		background: #eff3f7;
+		height: 200px;	
+		display:block;
+		margin-right: 15px;
+		margin-bottom: 10px;
+		color: #738695;
+		font-size: 12px;
+		line-height: 200px;
+	}
+	.centered .avatar label.true {
+		background-size: 200px;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		text-indent: -9999px;
+	}
+	.centered .avatar label.false {
+		background-color: #eff3f7;
 		border: 2px dashed #d2e1ec;
 		border-radius: 5px;
 		-webkit-border-radius: 5px;
 		-moz-border-radius: 5px;
 		text-align: center;
-		display: block;
-		color: #738695;
-		font-size: 12px;
-		line-height: 200px;
-		margin-right: 15px;
-		margin-bottom: 10px;
-	}
-	.centered .avatar label:hover {
-		color: #4b5761;
-		background: #ebeff2;
 	}
 	.centered .avatar, .centered .personal, .centered .social {
 		width: 50%;
@@ -472,7 +477,37 @@ body {
 	.centered .actions .add-button:hover { background: url(../images/add_button.png) no-repeat center center; }
 	.centered .actions .add-button:active { background: url(../images/add_button.png) no-repeat center top; }
 
-
+.edit-button,
+#sign-in input.edit-button {
+	padding: 6px 14px;
+	background: #a2d961;
+	box-shadow: 		inset 0 1px 1px rgba(255,255,255,.2);
+	-webkit-box-shadow: inset 0 1px 1px rgba(255,255,255,.2);
+	-moz-box-shadow: 	inset 0 1px 1px rgba(255,255,255,.2);
+	border: 1px solid #749a46;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;	
+	text-transform: uppercase;
+	text-shadow: 0 1px 1px rgba(0,0,0,.7);
+	font-weight: 600;
+}
+.edit-button:hover,
+#sign-in input.edit-button:hover {
+	background: #98cc5c;
+	border-color: #719644;
+}
+.edit-button:active,
+#sign-in input.edit-button:active {
+	border-color: #6a8c3f;
+	background: #95c45e;		
+	box-shadow: 		inset 0px 1px 3px rgba(0,0,0,.18);
+	-webkit-box-shadow:	inset 0px 1px 3px rgba(0,0,0,.18);
+	-moz-box-shadow:	inset 0px 1px 3px rgba(0,0,0,.18);
+}	
+	
 a {
 	text-decoration: none;
 }

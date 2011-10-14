@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
-  cattr_reader :per_page
-  @@per_page = Noladex::Application.config.page_size
+  # cattr_reader :per_page
+  # @@per_page = Noladex::Application.config.page_size
 
   acts_as_authentic do |c|
     c.login_field :email 
@@ -29,20 +29,24 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :missions, :reject_if => proc {|attributes| attributes['statement'].blank? }
 
-  class << self
+#  class << self
+#
+#    def get_page(user_ids_displayed, category=nil)
+#      candidates = 0
+#      unless category.blank?
+#        candidates = select(:id).includes(:missions => :category).where(["categories.id = ?", category]).map!(&:id)
+#      else
+#        candidates = select(:id).map(&:id)
+#      end
+#      length = candidates.length
+#      candidates = candidates - user_ids_displayed.map!(&:to_i)
+#      page = candidates.shuffle[0..8]
+#      return [length, includes(:missions => :category).where("users.id in (#{page.join(',')})").paginate(:page => 1, :per_page => Noladex::Application.config.page_size)]
+#    end
+#  end
 
-    def get_page(user_ids_displayed, category=nil)
-      candidates = 0
-      unless category.blank?
-        candidates = select(:id).includes(:missions => :category).where(["categories.id = ?", category]).map!(&:id)
-      else
-        candidates = select(:id).map(&:id)
-      end
-      length = candidates.length
-      candidates = candidates - user_ids_displayed.map!(&:to_i)
-      page = candidates.shuffle[0..8]
-      return [length, includes(:missions => :category).where("users.id in (#{page.join(',')})").paginate(:page => 1, :per_page => Noladex::Application.config.page_size)]
-    end
+	def self.find_by_category(category_id)
+    includes(:missions => :category).where(["categories.id = ?", category_id])
   end
 
   private

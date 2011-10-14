@@ -4,7 +4,7 @@ class PasswordController < ApplicationController
     user = User.find_by_email(params[:password][:email])
     if user
       PasswordMailer.password_reset(params[:password][:email], user.perishable_token).deliver
-      redirect_to root_url, :notice => 'Check your email for password instructions ...'
+      redirect_to root_url, :notice => 'Check your email for password instructions.'
     else
       # Don't alert the requesting user to the fact that an email does or does not exist ...
       redirect_to root_url
