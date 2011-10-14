@@ -1,7 +1,11 @@
 <%= semantic_form_for :password, :url => password_index_path do |f| %>
-  <h2>+Get a password reset email...</h2>
-  <%= f.inputs :email %>
-  <%= f.buttons do %>
-    <%= f.submit "Send", :class => 'button' %>
-	<% end %>
+  <div id="sign-in" class="clear">
+  	<h2>Forgot your password?</h2>
+  	<div class="field">
+  		<%= f.label :email, "Email" %>
+  		<%= f.text_field :email, :tabindex => '1' %>
+  	</div>
+  	<div class="actions right">
+		<%= f.submit "Send", :tabindex => '2', :class => 'edit-button' %>
+  	</div>
 <% end %>
