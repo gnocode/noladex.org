@@ -155,14 +155,13 @@
       if (settings.end) settings.end.call();
       return;
     }
-
-    // if slider past our scroll offset, then fire a request for more data ...
+    
+    // if slider past our scroll offset, then fire a request for more data
     if(!isLoading && (distanceToBottom() < settings.distance)) {
       loading(TRUE);
       // move to next page
       settings.currentPage++;
       // set up ajax query params
-      $.extend(settings.params, {selected: $('#selected_noladexers').val()});
       $.extend( settings.params
               , { page: settings.currentPage });
       // finally ajax query
