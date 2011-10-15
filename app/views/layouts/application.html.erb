@@ -5,11 +5,12 @@
 	<meta charset='UTF-8'>
 
 	<title>NOLADEX</title>    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=690, initial-scale=1.0">
 	<meta name="description" content="Noladex: a digital rolodex of the many talents in Greater New Orleans.">
 	<meta name="keywords" content="nola, noladex, nolodex, rolodex, new orleans, louisiana, talent, creative, class, community, artist, designer, developer, business, teacher, healer, create, art, web, entreprenuer">
 	
 	<link rel='stylesheet' href='/stylesheets/style.css'>
+	<%= javascript_include_tag "jquery.min", "jquery_ujs", "plugins", "noladex.js", "jquery.pageless.js" %>	
   <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-24621816-1']);
@@ -66,7 +67,7 @@
 				      @count = User.all().size
 			      end
 				  %>
-				  <a href="/"><%=@count %> New Orleanians on NOLAdex <%= @category_name.downcase if !@category_name.nil? %></a>		  		 
+				  <a href="/"><%=@count %> <%= @category_name.downcase if !@category_name.nil? %> on NOLAdex</a>		  		 
 			 	</p>
 			</div>
 		</div>
@@ -75,7 +76,6 @@
 		<%= yield %>	
 	</section>
 
-	<%= javascript_include_tag "jquery.min", "jquery_ujs", "plugins", "noladex.js", "jquery.pageless.js" %>
   <%= yield :javascript %>
 </body>
 </html>
