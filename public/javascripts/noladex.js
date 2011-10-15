@@ -6,13 +6,6 @@ var noladex = {
 		this.bindHovers();
 		this.bindDisplay('.about-link');
 		this.bindClose('.close-link');
-		this.picturePreview();
-	},
-	
-	picturePreview : function() {
-		$("#user_avatar").change(function() {
-			// $(this).siblings('label').css('background-image', );
-		});
 	},
 	
 	setupAbout : function() {
@@ -23,20 +16,22 @@ var noladex = {
 	bindDisplay : function(target) {
 		var self = this;
 		
-		$(target).click(function() {
+		$(target).click(function(e) {
 			var href = $(this).attr('href');
 			self.toggleDisplay(href);
-			$('body').css('overflow', 'hidden');		
+			$('body').css('overflow', 'hidden');
+			e.preventDefault();		
 		});		
 	},
 	
 	bindClose : function(target) {
 		var self = this;
 		
-		$(target).click(function() {
+		$(target).click(function(e) {
 			var href = $(this).attr('href');
 			self.toggleDisplay(href);
 			$('body').css('overflow','auto');
+			e.preventDefault();
 		});
 	},
 	
