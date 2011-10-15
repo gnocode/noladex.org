@@ -20,6 +20,7 @@ ul, li, ol {
 	list-style: none;
 	text-decoration: none;
 	font-size: 100%;
+	margin-left: 0;
 }
 .right {
 	display: block;
@@ -561,7 +562,7 @@ fieldset {
 
 #error_explanation ul li {
   list-style: none;
-  margin: 12px;
+  margin: 12px 0;
   color: #bd2c00;
 }
 form h2 {
