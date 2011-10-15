@@ -24,6 +24,8 @@ class User < ActiveRecord::Base
   
   validates :missions, :length => { :minimum => Constants::MinimumMissions, :message => "You must have at least one mission to be listed."}
   validate :avatar_size
+  validates_attachment_size :avatar, :less_than=>700.kilobytes, 
+                    :if => Proc.new { |imports| !imports.avatar_file_name.blank? }
 
   before_save :format_urls
 
