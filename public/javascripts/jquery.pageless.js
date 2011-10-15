@@ -160,7 +160,6 @@
     if(!isLoading && (distanceToBottom() < settings.distance)) {
       loading(TRUE);
       // move to next page
-      console.log(settings);
       settings.currentPage++;
       // set up ajax query params
       $.extend( settings.params
