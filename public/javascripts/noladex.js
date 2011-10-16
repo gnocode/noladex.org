@@ -36,8 +36,7 @@ var noladex = {
 	},
 	
 	toggleDisplay : function(href) {
-			$(href).fadeToggle(function(){
-			});
+			$(href).fadeToggle();
 			$('.close-link').fadeToggle(800);		
 	},
 	
@@ -53,11 +52,11 @@ var noladex = {
 	},
 
 	bindHovers : function() {
-		$("#people").delegate(".person", "hover", function() {
-			var self = this;
-			$("#tagline").val($(self).find(".tag").text());
-			$(self).find('.overlay').fadeToggle(200);
-		});
+		$('.person').live('mouseenter', function() {
+    	$(this).find('.overlay').stop(true, false).fadeTo(200, 1);
+    }).live('mouseleave', function(){
+    	$(this).find('.overlay').stop(true, false).fadeTo(200, 0);
+    });
 	}
 }
 
