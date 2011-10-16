@@ -34,6 +34,14 @@
 			
 <!-- TODO add search functionality back <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
 		<ul id="navigation" class="right clear">
+				<li>
+					<%= form_tag users_path, :method => 'get', :id => "users_search" do %>
+					  <p>
+					    <%= text_field_tag :search, params[:search] %>
+					    <%= submit_tag "Search", :name => nil %>
+					  </p>
+					<% end %>
+				</li>
 	  		<li><a class="about-link" href="#about" title="About">About</a></li>	
 	  		<%= render :partial => 'shared/navigation' %>
 		</ul>

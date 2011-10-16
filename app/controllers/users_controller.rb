@@ -6,7 +6,11 @@ class UsersController < ApplicationController
     if params[:category]
       @users = User.find_by_category(params[:category]).paginate(:per_page => 12, :page => params[:page])
     else
-      @users = User.includes(:missions => :category).order('created_at DESC').paginate(:per_page => 12, :page => params[:page])
+      @search = User.search do
+        fulltext params[:search]
+      end
+      @users = @search.results # User.search(params[:search]).order('created_at DESC').paginate(:per_page => 12, :page => params[:page])
+    #  @users = User.includes(:missions => :category).order('created_at DESC').paginate(:per_page => 12, :page => params[:page])
     end
     if request.xhr?
       render :partial => @users
