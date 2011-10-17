@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       @users = User.find_by_category(params[:category]).paginate(:per_page => 20, :page => params[:page])
     elsif params[:search]
       @search = User.search do
-        keywords params[:search]
+        fulltext params[:search]
       end
       @users = @search.results.paginate(:per_page => 20, :page => params[:page])
     else

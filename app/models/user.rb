@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
       :secret_access_key => ENV['S3_SECRET']
     }
   }
-
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name,  :presence => true,
