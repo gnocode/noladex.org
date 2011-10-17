@@ -41,17 +41,11 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :missions, :reject_if => proc {|attributes| attributes['statement'].blank? }
 
   searchable do
-    text :name
-    text :missions
+    text :name 
+    text :missions do
+      missions.map { |mission| mission.statement }
+    end
   end
-
-#  def self.search(search)
-#    if search
-#      where('name LIKE ?', "%#{search}%")
-#    else
-#      scoped
-#    end
-#  end
 
 	def self.find_by_category(category_id)
     includes(:missions => :category).where(["categories.id = ?", category_id])

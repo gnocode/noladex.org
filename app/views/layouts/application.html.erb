@@ -30,9 +30,7 @@
 		</h1>
 		<div id="filter">
 			<%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name", params[:category]) %>
-		</div>
-			
-<!-- TODO add search functionality back <input type="search" name="search" id="search" results="5" placeholder="search..."> -->			
+		</div>			
 		<ul id="navigation" class="right clear">
 				<li>
 					<%= form_tag users_path, :method => 'get', :id => "users_search" do %>
