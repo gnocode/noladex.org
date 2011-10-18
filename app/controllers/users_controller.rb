@@ -4,14 +4,14 @@ class UsersController < ApplicationController
 
   def index
     if params[:category]
-      @users = User.find_by_category(params[:category]).paginate(:per_page => 100, :page => params[:page])
+      @users = User.find_by_category(params[:category]).paginate(:per_page => 30, :page => params[:page])
     elsif params[:search]
       @search = User.search do
         fulltext params[:search]
       end
-      @users = @search.results.paginate(:per_page => 100, :page => params[:page])
+      @users = @search.results.paginate(:per_page => 30, :page => params[:page])
     else
-      @users = User.includes(:missions => :category).order('created_at DESC').paginate(:per_page => 100, :page => params[:page])
+      @users = User.includes(:missions => :category).order('created_at DESC').paginate(:per_page => 30, :page => params[:page])
     end
     if request.xhr?
       render :partial => @users
@@ -22,10 +22,6 @@ class UsersController < ApplicationController
         format.xml  { render :xml => @users }
       end   
     end
-  end
-
-  def destroy
-    User.destroy(params[:id])
   end
 
   def new
