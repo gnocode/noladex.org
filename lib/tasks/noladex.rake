@@ -13,7 +13,10 @@ namespace :noladex do
   
   desc "Add width and height meta data to the images already uploaded ..."
   task :reprocess_images => :environment do
-    User.all.each { |user| user.avatar.reprocess! }    
+    first_batch = User.find(:all) { |f| f.id > 0 && f.id < 100 }
+    first_batch.select { |f| f.avatar.reprocess! if f.avatar.exists? }
+
+    #User.all.each { |user| user.avatar.reprocess! if user.avatar.exists? }    
   end
   
 end
