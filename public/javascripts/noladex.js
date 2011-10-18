@@ -6,6 +6,15 @@ var noladex = {
 		this.bindHovers();
 		this.bindDisplay('.about-link');
 		this.bindClose('.close-link');
+		this.searchButton();
+	},
+
+	searchButton : function() {
+		$('#search-button').click(function() {
+      var s = window.prompt('Search NOLADEX');
+      if (s) { window.location = "/users?utf8=✓&search="+s; }
+      return false;
+    });
 	},
 	
 	setupAbout : function() {

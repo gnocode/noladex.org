@@ -29,7 +29,7 @@
 		
 	  <div class="avatar left">
 	  	<% if @user.avatar.url and @user.created_at %>
-		    <%= f.label :avatar, 'Upload Photo', :class => 'true', :style => 'background-image: url('+@user.avatar.url+');' %>
+		    <%= f.label :avatar, 'Upload Photo', :class => 'true', :style => 'background-image: url('+@user.avatar.url(:medium)+');' %>
 		<% else %>
 			<%= f.label :avatar, 'Upload Photo', :class => 'false' %>
 		<% end %>
