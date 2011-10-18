@@ -1,4 +1,6 @@
 module UsersHelper
+  ## can remove this after ensuring the medium sized images work
+  
   def display_photo(avatar)
     # defaults for images that havent been converted yet.
     width = height = 250
