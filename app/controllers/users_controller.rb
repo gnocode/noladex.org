@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.destroy(params[:id])
+  end
+
   def new
     @user = User.new
     3.times { @user.missions.build }
