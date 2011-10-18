@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   validates :avatar_file_name, :presence => true
   validate :avatar_size
-  
+
   validates :missions, :length => { :minimum => Constants::MinimumMissions, :message => "You must have at least one mission to be listed."}
 
   validates_attachment_size :avatar, :less_than=>700.kilobytes, 

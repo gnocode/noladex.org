@@ -1,6 +1,6 @@
 module UsersHelper
   def display_photo(avatar)
-    #default for images that havent been converted over.
+    # defaults for images that havent been converted yet.
     width = height = 250
     style = ""
 
@@ -16,6 +16,6 @@ module UsersHelper
       end
     end
     return image_tag avatar.url(:medium), {:width => width, :height => height, :style => style}
-
   end
+
 end
