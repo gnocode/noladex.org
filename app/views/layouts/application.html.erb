@@ -32,14 +32,7 @@
 			<%= select_tag "categories", options_from_collection_for_select(Category.all, "id", "name", params[:category]) %>
 		</div>			
 		<ul id="navigation" class="right clear">
-				<li>
-					<%= form_tag users_path, :method => 'get', :id => "users_search" do %>
-					  <p>
-					    <%= text_field_tag :search, params[:search] %>
-					    <%= submit_tag "Search", :name => nil %>
-					  </p>
-					<% end %>
-				</li>
+				<li><%= link_to "Search", "/users", :id => "search-button" %></li>
 	  		<li><a class="about-link" href="#about" title="About">About</a></li>	
 	  		<%= render :partial => 'shared/navigation' %>
 		</ul>

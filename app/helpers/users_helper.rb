@@ -15,7 +15,7 @@ module UsersHelper
         style = 'top: -' + ((height-250)/2).to_s  + 'px;'
       end
     end
-    return image_tag avatar.url, {:width => width, :height => height, :style => style}
+    return image_tag avatar.url(:medium), {:width => width, :height => height, :style => style}
 
   end
 end
