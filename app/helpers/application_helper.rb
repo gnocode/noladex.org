@@ -7,7 +7,7 @@ module ApplicationHelper
     opts = {
       :totalPages => total_pages,
       :url        => url,
-      :distance   => 350,
+      :distance   => 300,
       :loaderMsg  => ''
     }
     

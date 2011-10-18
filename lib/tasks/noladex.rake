@@ -13,7 +13,7 @@ namespace :noladex do
   
   desc "Add width and height meta data to the images already uploaded ..."
   task :reprocess_images => :environment do
-    User.all.each{|u| u.avatar.reprocess!; u.save!}    
+    User.all.each { |user| user.avatar.reprocess! }    
   end
   
 end

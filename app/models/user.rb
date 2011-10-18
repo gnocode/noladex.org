@@ -1,8 +1,5 @@
 class User < ActiveRecord::Base
 
-  # cattr_reader :per_page
-  # @@per_page = Noladex::Application.config.page_size
-
   acts_as_authentic do |c|
     c.login_field :email 
     c.require_password_confirmation = false
@@ -19,11 +16,24 @@ class User < ActiveRecord::Base
     }
   }
 
-  validates_presence_of :name, :email, :avatar_file_name
-  validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
-  
-  validates :missions, :length => { :minimum => Constants::MinimumMissions, :message => "You must have at least one mission to be listed."}
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :name,  :presence => true,
+            :length   => { :maximum => 50 }
+
+  validates :email, :presence => true,
+            :format   => { :with => email_regex },
+            :uniqueness => { :case_sensitive => false }
+    
+  validates :password,  :presence   => true,
+              :confirmation   => true,
+              :length     => { :within => 6..20 }
+
+  validates :avatar_file_name, :presence => true
   validate :avatar_size
+
+  validates :missions, :length => { :minimum => Constants::MinimumMissions, :message => "You must have at least one mission to be listed."}
+
   validates_attachment_size :avatar, :less_than=>700.kilobytes, 
                     :if => Proc.new { |imports| !imports.avatar_file_name.blank? }
 
@@ -31,21 +41,12 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :missions, :reject_if => proc {|attributes| attributes['statement'].blank? }
 
-#  class << self
-#
-#    def get_page(user_ids_displayed, category=nil)
-#      candidates = 0
-#      unless category.blank?
-#        candidates = select(:id).includes(:missions => :category).where(["categories.id = ?", category]).map!(&:id)
-#      else
-#        candidates = select(:id).map(&:id)
-#      end
-#      length = candidates.length
-#      candidates = candidates - user_ids_displayed.map!(&:to_i)
-#      page = candidates.shuffle[0..8]
-#      return [length, includes(:missions => :category).where("users.id in (#{page.join(',')})").paginate(:page => 1, :per_page => Noladex::Application.config.page_size)]
-#    end
-#  end
+  searchable do
+    text :name 
+    text :missions do
+      missions.map { |mission| mission.statement }
+    end
+  end
 
 	def self.find_by_category(category_id)
     includes(:missions => :category).where(["categories.id = ?", category_id])
