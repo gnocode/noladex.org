@@ -1,5 +1,5 @@
 <div id="person-<%= user.id %>" class="person">
-	<%= display_photo user.avatar %>
+	<%= image_tag user.avatar(:medium) %>
 	<div class="overlay">
 		<h2><%= user.name %></h2>
 

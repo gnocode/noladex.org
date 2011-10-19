@@ -4,10 +4,11 @@ class UsersController < ApplicationController
 
   def index
     if params[:category]
-      @users = User.find_by_category(params[:category]).shuffle.paginate(:per_page => 20, :page => params[:page])
+      @users = User.find_by_category(params[:category]).paginate(:per_page => 30, :page => params[:page])
     else
-      @users = User.includes(:missions => :category).shuffle.paginate(:per_page => 20, :page => params[:page])
+      @users = User.includes(:missions => :category).order('created_at DESC').paginate(:per_page => 30, :page => params[:page])
     end
+
     if request.xhr?
       render :partial => @users
     else
