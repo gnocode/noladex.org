@@ -110,12 +110,12 @@ PLATFORMS
 
 DEPENDENCIES
   authlogic!
-  aws-s3
+  aws-s3 (= 0.6.2)
   formtastic
   jquery-rails
   kaminari
-  paperclip
-  paperclip-meta
+  paperclip (= 2.3.16)
+  paperclip-meta (= 0.2)
   pg
   rack-openid
   rails (= 3.0.9)
