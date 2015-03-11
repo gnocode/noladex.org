@@ -37,7 +37,7 @@ GEM
       activesupport (= 3.0.9)
     activesupport (3.0.9)
     arel (2.0.10)
-    aws-s3 (0.6.2)
+    aws-s3 (0.6.3)
       builder
       mime-types
       xml-simple
@@ -60,7 +60,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mime-types (1.16)
+    mime-types (1.25.1)
     paperclip (2.3.16)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
@@ -102,7 +102,7 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
     will_paginate (3.0.pre4)
-    xml-simple (1.1.0)
+    xml-simple (1.1.5)
 
 PLATFORMS
   ruby
@@ -110,7 +110,7 @@ PLATFORMS
 
 DEPENDENCIES
   authlogic!
-  aws-s3 (= 0.6.2)
+  aws-s3 (= 0.6.3)
   formtastic
   jquery-rails
   kaminari
